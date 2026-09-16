@@ -44,7 +44,7 @@ window.SITE_INDEX = [
   { id: 'math', name: '数学', books: [] },
   { id: 'english', name: '英语', books: [
     { id: 1, name: '语法填空', chapters: [{ id: 1, name: '十个抽屉', live: true }] },
-    { id: 2, name: '完形词块', chapters: [] },
+    { id: 2, name: '完形词块', chapters: [{ id: 1, name: '完形词块', live: true }] },
     { id: 3, name: '应用文', chapters: [{ id: 1, name: '六类场景', live: true }] },
     { id: 4, name: '读后续写', chapters: [{ id: 1, name: '四步法与句式', live: true }] },
     { id: 5, name: '七选五', chapters: [{ id: 1, name: '四个抓手', live: true }] },
