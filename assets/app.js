@@ -56,7 +56,23 @@
   function writeMarks(sid, bid, cid, m) {
     try { localStorage.setItem(keyOf(sid, bid, cid), JSON.stringify(m)); } catch (e) {}
   }
+  // 从自己的 <script src="…app.js?v=xxx"> 上读出本次部署的版本号，
+  // 再贴到所有数据文件地址后面 —— 这样题目更新也不会被浏览器缓存卡住。
+  function assetVer() {
+    var ss = document.getElementsByTagName('script');
+    for (var i = 0; i < ss.length; i++) {
+      var m = (ss[i].getAttribute('src') || '').match(/app\.js\?v=([0-9a-f]+)/);
+      if (m) return m[1];
+    }
+    return '';
+  }
+  var VER = assetVer();
+  function withVer(url) {
+    if (!VER) return url;
+    return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'v=' + VER;
+  }
   function loadScript(url) {
+    url = withVer(url);
     return new Promise(function (res, rej) {
       var s = document.createElement('script');
       s.src = url;
@@ -66,6 +82,7 @@
     });
   }
   function loadData(url) {
+    url = withVer(url);
     return new Promise(function (res, rej) {
       var s = document.createElement('script');
       s.src = url;
