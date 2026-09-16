@@ -44,25 +44,31 @@ window.SITE_INDEX = [
   { id: 'math', name: '数学', books: [] },
   { id: 'english', name: '英语', books: [
     { id: 1, name: '语法填空', noReview: true, chapters: [
-      { id: 1, name: '判断法（读）', live: true },
-      { id: 2, name: '十个抽屉（背）', live: true }
+      { id: 1, name: '判断法 · 教程', live: true },
+      { id: 2, name: '十个抽屉 · 背', live: true }
     ]},
     { id: 2, name: '完形词块', noReview: true, chapters: [
-      { id: 1, name: '词块与辨析（背）', live: true }
+      { id: 1, name: '四类线索 · 教程', live: true },
+      { id: 2, name: '词块辨析 · 背', live: true }
     ]},
     { id: 3, name: '应用文', noReview: true, chapters: [
-      { id: 1, name: '六类句式（背）', live: true },
-      { id: 2, name: '格式与易错（读）', live: true }
+      { id: 1, name: '写作教程', live: true },
+      { id: 2, name: '邀请信 · 背', live: true },
+      { id: 3, name: '建议信 · 背', live: true },
+      { id: 4, name: '申请信 · 背', live: true },
+      { id: 5, name: '通知 · 背', live: true },
+      { id: 6, name: '介绍 · 背', live: true },
+      { id: 7, name: '感谢信 · 背', live: true }
     ]},
     { id: 4, name: '读后续写', noReview: true, chapters: [
-      { id: 1, name: '四步法（读）', live: true },
-      { id: 2, name: '高分句式（背）', live: true }
+      { id: 1, name: '四步法 · 教程', live: true },
+      { id: 2, name: '高分句式 · 背', live: true }
     ]},
     { id: 5, name: '七选五', noReview: true, chapters: [
-      { id: 1, name: '四个抓手（读）', live: true }
+      { id: 1, name: '四个抓手 · 教程', live: true }
     ]},
     { id: 6, name: '阅读干扰项', noReview: true, chapters: [
-      { id: 1, name: '五类陷阱（读）', live: true }
+      { id: 1, name: '五类陷阱 · 教程', live: true }
     ]}
   ] },
   { id: 'physics', name: '物理', books: [] },
