@@ -210,7 +210,7 @@
         if (names.length) L.push((v === 2 ? '② 模糊：' : '③ 不会：') + names.join(' / '));
       });
       if (!s.c[2] && !s.c[3]) L.push('全部会 ✓');
-      doCopy(L.join('\n'), '已复制，粘给 Phicilia');
+      doCopy(L.join('\n'), '已复制到剪贴板');
     };
 
     document.getElementById('reset').onclick = function () {
