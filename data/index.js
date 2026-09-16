@@ -43,12 +43,27 @@ window.SITE_INDEX = [
   { id: 'chinese', name: '语文', books: [] },
   { id: 'math', name: '数学', books: [] },
   { id: 'english', name: '英语', books: [
-    { id: 1, name: '语法填空', chapters: [{ id: 1, name: '十个抽屉', live: true }] },
-    { id: 2, name: '完形词块', chapters: [{ id: 1, name: '完形词块', live: true }] },
-    { id: 3, name: '应用文', chapters: [{ id: 1, name: '六类场景', live: true }] },
-    { id: 4, name: '读后续写', chapters: [{ id: 1, name: '四步法与句式', live: true }] },
-    { id: 5, name: '七选五', chapters: [{ id: 1, name: '四个抓手', live: true }] },
-    { id: 6, name: '阅读干扰项', chapters: [{ id: 1, name: '五类陷阱', live: true }] }
+    { id: 1, name: '语法填空', noReview: true, chapters: [
+      { id: 1, name: '判断法（读）', live: true },
+      { id: 2, name: '十个抽屉（背）', live: true }
+    ]},
+    { id: 2, name: '完形词块', noReview: true, chapters: [
+      { id: 1, name: '词块与辨析（背）', live: true }
+    ]},
+    { id: 3, name: '应用文', noReview: true, chapters: [
+      { id: 1, name: '六类句式（背）', live: true },
+      { id: 2, name: '格式与易错（读）', live: true }
+    ]},
+    { id: 4, name: '读后续写', noReview: true, chapters: [
+      { id: 1, name: '四步法（读）', live: true },
+      { id: 2, name: '高分句式（背）', live: true }
+    ]},
+    { id: 5, name: '七选五', noReview: true, chapters: [
+      { id: 1, name: '四个抓手（读）', live: true }
+    ]},
+    { id: 6, name: '阅读干扰项', noReview: true, chapters: [
+      { id: 1, name: '五类陷阱（读）', live: true }
+    ]}
   ] },
   { id: 'physics', name: '物理', books: [] },
   { id: 'chemistry', name: '化学', books: [] }
