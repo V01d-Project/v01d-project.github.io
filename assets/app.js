@@ -395,7 +395,7 @@
     paint();
   }
 
-  /* ============ 讲解页（sections）—— 先读先懂 ============ */
+  /* ============ 教程 / 讲解页（sections）—— 可交互 ============ */
   function head2(title, base, right) {
     document.title = title;
     var t = document.getElementById('ttl');
@@ -411,11 +411,29 @@
   }
 
   function renderRead(D, base) {
-    head2(D.subject + ' · ' + (D.bookName || '') + ' · ' + D.chapterName, base, '讲解');
+    var secs = D.sections || [];
+    var exN = 0;
+    secs.forEach(function (s) { exN += (s.ex || []).length; });
+    head2(D.subject + ' · ' + (D.bookName || '') + ' · ' + D.chapterName, base,
+      '教程 ' + secs.length + ' 节' + (exN ? ' · 例题 ' + exN : ''));
     var list = document.getElementById('root');
     list.innerHTML = '';
-    (D.sections || []).forEach(function (s) {
+
+    // 小节目录：点一下直接跳到那一节
+    if (secs.length > 2) {
+      var nav = el('div', 'navbox');
+      secs.forEach(function (s, i) {
+        var a = el('a', null, (i + 1) + '. ' + String(s.h || '').replace(/^[一二三四五六七八九十]+、\s*/, ''));
+        a.href = '#s' + i;
+        nav.appendChild(a);
+      });
+      list.appendChild(nav);
+    }
+
+    var no = 0;
+    secs.forEach(function (s, si) {
       var box = el('div', 'rd');
+      box.id = 's' + si;
       if (s.h) box.appendChild(el('h2', null, s.h));
       var ps = s.p == null ? [] : (Array.isArray(s.p) ? s.p : [s.p]);
       ps.forEach(function (x) {
@@ -423,15 +441,40 @@
         else if (x && x.li) box.appendChild(el('div', 'li', '· ' + x.li));
         else if (x && x.tip) box.appendChild(el('div', 'tip', x.tip));
         else if (x && x.code) box.appendChild(el('pre', 'cd', x.code));
+        else if (x && x.en) box.appendChild(el('div', 'ens', x.en));
+        else if (x && x.zh) box.appendChild(el('div', 'zhs', x.zh));
       });
+      (s.ex || []).forEach(function (x) { no++; box.appendChild(makeEx(x, no)); });
       list.appendChild(box);
     });
+  }
+
+  /* 一道例题：先自己想，点开才给思路 */
+  function makeEx(x, no) {
+    var w = el('div', 'ex');
+    w.appendChild(el('div', 'ext', '例题 ' + no));
+    w.appendChild(el('div', 'exq', x.q || ''));
+    var a = el('div', 'exa');
+    var steps = x.a == null ? [] : (Array.isArray(x.a) ? x.a : [x.a]);
+    steps.forEach(function (t) { a.appendChild(el('div', 'exs', String(t))); });
+    if (x.tip) a.appendChild(el('div', 'tip', x.tip));
+    var b = el('button', 'exb', '点我看思路');
+    b.onclick = function () {
+      var on = a.classList.toggle('on');
+      b.textContent = on ? '收起思路' : '点我看思路';
+    };
+    w.appendChild(b);
+    w.appendChild(a);
+    return w;
   }
 
   /* ============ 学习 / 背诵页（items）—— 先学后背 ============ */
   function renderStudy(D, base) {
     var items = D.items || [];
-    var mode = 'show';
+    // hideDefault 按内容定：写作用句要遮英文（看着中文想英文），
+    // 词语辨析要遮中文（看着英文想意思）。没写就全显示。
+    var mode = (D.hideDefault === 'en' || D.hideDefault === 'zh') ? D.hideDefault : 'show';
+    var HINT = { show: '全部显示', en: '遮英文', zh: '遮中文' };
     head2(D.subject + ' · ' + (D.bookName || '') + ' · ' + D.chapterName, base, '背诵 ' + items.length + ' 项');
     var list = document.getElementById('root');
     var f = document.getElementById('filters');
@@ -448,6 +491,7 @@
     function applyChips() {
       btns.forEach(function (b) { b.className = 'chip' + (mode === b.dataset.k ? ' on' : ''); });
     }
+    // 一行点一下：在当前档位 ⇄ 全显示 之间来回，方便单独啃某几条
     function paint() {
       list.innerHTML = '';
       items.forEach(function (it, i) {
@@ -460,7 +504,7 @@
         r.appendChild(en);
         r.appendChild(zh);
         if (it.note) r.appendChild(el('div', 'note', it.note));
-        r.onclick = function () { rowState[i] = (st === 'en' ? 'show' : 'en'); paint(); };
+        r.onclick = function () { rowState[i] = (st === mode ? 'show' : mode); paint(); };
         list.appendChild(r);
       });
       applyChips();
