@@ -25,7 +25,8 @@ a{color:var(--a);text-decoration:none}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{display:inline-block;padding:8px 13px;border-radius:999px;background:#eef2f7;color:var(--fg);font-size:14px;border:1px solid var(--line)}
 .chip.on{background:#e0edff;border-color:#bcd6ff;color:#1d4ed8}
-.chip.off{background:#f5f5f5;color:#a0a4ab}
+.chip.rev{background:#fff3e0;border-color:#ffd9a8;color:#b45309}
+.chip.rev::before{content:'★ '}
 .empty{color:var(--dim);font-size:14px;padding:2px 0}
 
 /* ---------- 章节页 ---------- */
@@ -49,6 +50,7 @@ a{color:var(--a);text-decoration:none}
 .q .no{flex:0 0 auto;font-size:12px;color:#fff;background:#9aa3af;border-radius:6px;padding:2px 6px;margin-top:3px;font-variant-numeric:tabular-nums}
 .q.m1 .no{background:var(--ok)}.q.m2 .no{background:var(--mid)}.q.m3 .no{background:var(--bad)}
 .q .tx{flex:1;font-size:15.5px;line-height:1.55}
+.q .src{display:inline-block;font-size:11px;color:#1d4ed8;background:#e8f0ff;border-radius:5px;padding:1px 6px;margin:0 6px 4px 0;font-variant-numeric:tabular-nums}
 .q .tag{display:inline-block;font-size:11px;color:var(--dim);background:#f1f3f7;border-radius:5px;padding:1px 6px;margin-bottom:4px}
 .q .ans{display:none;margin-top:9px;padding:9px 11px;background:#f7f9fc;border:1px dashed #d7dde7;border-radius:9px;font-size:14px;color:#334155;white-space:pre-wrap}
 .q.open .ans{display:block}
