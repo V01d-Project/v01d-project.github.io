@@ -171,7 +171,7 @@
               if (c.live) a.href = s.id + '/' + b.id + '-' + c.id + '/';
               cs.appendChild(a);
             });
-            if (live.length) {
+            if (live.length && !b.noReview) {
               var r = el('a', 'chip rev', '整本检测 · ' + live.length + ' 章');
               r.href = s.id + '/' + b.id + '/';
               cs.appendChild(r);
@@ -191,6 +191,8 @@
   function chapterPage(sid, bid, cid) {
     var base = siteBase(sid);
     loadData(base + '/data/' + sid + '/' + bid + '-' + cid + '.js').then(function (D) {
+      if (D.sections) { renderRead(D, base); return; }
+      if (D.items) { renderStudy(D, base); return; }
       var marks = readMarks(sid, bid, cid);
       var qs = D.questions || [];
       var filter = 0;
@@ -390,6 +392,79 @@
       all.forEach(function (it) { it.marks = {}; it.marks = it.marks; });
       location.reload();
     };
+    paint();
+  }
+
+  /* ============ 讲解页（sections）—— 先读先懂 ============ */
+  function head2(title, base, right) {
+    document.title = title;
+    var t = document.getElementById('ttl');
+    t.innerHTML = '';
+    t.appendChild(document.createTextNode(title));
+    t.appendChild(el('small')).appendChild(el('a', null, '← 目录')).href = base + '/';
+    var p = document.querySelector('.bar .p');
+    if (p) p.textContent = right || '';
+    var fb = document.querySelector('.footbar');
+    if (fb) fb.style.display = 'none';
+    var f = document.getElementById('filters');
+    if (f) f.innerHTML = '';
+  }
+
+  function renderRead(D, base) {
+    head2(D.subject + ' · ' + (D.bookName || '') + ' · ' + D.chapterName, base, '讲解');
+    var list = document.getElementById('root');
+    list.innerHTML = '';
+    (D.sections || []).forEach(function (s) {
+      var box = el('div', 'rd');
+      if (s.h) box.appendChild(el('h2', null, s.h));
+      var ps = s.p == null ? [] : (Array.isArray(s.p) ? s.p : [s.p]);
+      ps.forEach(function (x) {
+        if (typeof x === 'string') box.appendChild(el('p', null, x));
+        else if (x && x.li) box.appendChild(el('div', 'li', '· ' + x.li));
+        else if (x && x.tip) box.appendChild(el('div', 'tip', x.tip));
+        else if (x && x.code) box.appendChild(el('pre', 'cd', x.code));
+      });
+      list.appendChild(box);
+    });
+  }
+
+  /* ============ 学习 / 背诵页（items）—— 先学后背 ============ */
+  function renderStudy(D, base) {
+    var items = D.items || [];
+    var mode = 'show';
+    head2(D.subject + ' · ' + (D.bookName || '') + ' · ' + D.chapterName, base, '背诵 ' + items.length + ' 项');
+    var list = document.getElementById('root');
+    var f = document.getElementById('filters');
+    f.innerHTML = '';
+    var btns = [];
+    [['全部显示', 'show'], ['遮英文', 'en'], ['遮中文', 'zh']].forEach(function (p) {
+      var b = el('button', 'chip', p[0]);
+      b.dataset.k = p[1];
+      b.onclick = function () { mode = p[1]; paint(); };
+      btns.push(b);
+      f.appendChild(b);
+    });
+    var rowState = {};
+    function applyChips() {
+      btns.forEach(function (b) { b.className = 'chip' + (mode === b.dataset.k ? ' on' : ''); });
+    }
+    function paint() {
+      list.innerHTML = '';
+      items.forEach(function (it, i) {
+        var st = rowState[i] || mode;
+        var r = el('div', 'row');
+        var en = el('div', 'en', it.en || '');
+        var zh = el('div', 'zh', it.zh || '');
+        if (st === 'en') en.style.visibility = 'hidden';
+        if (st === 'zh') zh.style.visibility = 'hidden';
+        r.appendChild(en);
+        r.appendChild(zh);
+        if (it.note) r.appendChild(el('div', 'note', it.note));
+        r.onclick = function () { rowState[i] = (st === 'en' ? 'show' : 'en'); paint(); };
+        list.appendChild(r);
+      });
+      applyChips();
+    }
     paint();
   }
 
