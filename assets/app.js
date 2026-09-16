@@ -205,9 +205,14 @@
       var L = ['【' + D.subject + ' ' + (D.bookName || BOOK[bid]) + ' ' + D.chapterName + '】共 ' + qs.length +
                ' 题 · ①会 ' + s.c[1] + ' / ②模糊 ' + s.c[2] + ' / ③不会 ' + s.c[3]];
       [2, 3].forEach(function (v) {
-        var names = qs.filter(function (_, i) { return marks[i] === v; })
-                      .map(function (q) { return q.k || q.q.slice(0, 12); });
-        if (names.length) L.push((v === 2 ? '② 模糊：' : '③ 不会：') + names.join(' / '));
+        var items = [];
+        qs.forEach(function (q, i) {
+          if (marks[i] !== v) return;
+          var t = String(q.q).replace(/[。？?！!，,]/g, '');
+          if (t.length > 20) t = t.slice(0, 20) + '…';
+          items.push('#' + (i + 1) + ' ' + t);
+        });
+        if (items.length) L.push((v === 2 ? '② 模糊：' : '③ 不会：') + items.join(' / '));
       });
       if (!s.c[2] && !s.c[3]) L.push('全部会 ✓');
       doCopy(L.join('\n'), '已复制到剪贴板');
