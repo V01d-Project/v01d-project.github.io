@@ -19,9 +19,25 @@ window.SITE_INDEX = [
         { id: 5, name: '第5章 基因突变及其他变异', live: true },
         { id: 6, name: '第6章 生物的进化', live: true }
       ]},
-      { id: 3, name: '选择性必修一 稳态与调节', chapters: [] },
-      { id: 4, name: '选择性必修二 生物与环境', chapters: [] },
-      { id: 5, name: '选择性必修三 生物技术与工程', chapters: [] }
+      { id: 3, name: '选择性必修一 稳态与调节', chapters: [
+        { id: 1, name: '第1章 人体的内环境与稳态', live: true },
+        { id: 2, name: '第2章 神经调节', live: true },
+        { id: 3, name: '第3章 体液调节', live: true },
+        { id: 4, name: '第4章 免疫调节', live: true },
+        { id: 5, name: '第5章 植物生命活动的调节', live: true }
+      ]},
+      { id: 4, name: '选择性必修二 生物与环境', chapters: [
+        { id: 1, name: '第1章 种群及其动态', live: true },
+        { id: 2, name: '第2章 群落及其演替', live: true },
+        { id: 3, name: '第3章 生态系统及其稳定性', live: true },
+        { id: 4, name: '第4章 人与环境', live: true }
+      ]},
+      { id: 5, name: '选择性必修三 生物技术与工程', chapters: [
+        { id: 1, name: '第1章 发酵工程', live: true },
+        { id: 2, name: '第2章 细胞工程', live: true },
+        { id: 3, name: '第3章 基因工程', live: true },
+        { id: 4, name: '第4章 生物技术的安全性与伦理问题', live: true }
+      ]}
     ]
   },
   { id: 'chinese', name: '语文', books: [] },
