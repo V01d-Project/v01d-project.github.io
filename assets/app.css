@@ -27,6 +27,7 @@ a{color:var(--a);text-decoration:none}
 .chip.on{background:#e0edff;border-color:#bcd6ff;color:#1d4ed8}
 .chip.rev{background:#fff3e0;border-color:#ffd9a8;color:#b45309}
 .chip.rev::before{content:'★ '}
+.chip.off{background:#f5f5f5;color:#a0a4ab}
 .empty{color:var(--dim);font-size:14px;padding:2px 0}
 
 /* ---------- 章节页 ---------- */
@@ -56,7 +57,8 @@ a{color:var(--a);text-decoration:none}
 .q.open .ans{display:block}
 .q .ops{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .op{flex:1 1 0;min-width:74px;padding:9px 4px;text-align:center;font-size:14px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer}
-.op.ans{background:#f7f9fc;flex:0 0 auto;min-width:62px;color:var(--dim)}
+.op.ans{background:#eef5ff;border-color:#bcd6ff;color:#1d4ed8;font-weight:600;flex:0 0 auto;min-width:88px}
+.q .tx.tap{cursor:pointer}
 .op.s1{background:var(--ok);border-color:var(--ok);color:#fff}
 .op.s2{background:var(--mid);border-color:var(--mid);color:#fff}
 .op.s3{background:var(--bad);border-color:var(--bad);color:#fff}
