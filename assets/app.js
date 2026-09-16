@@ -111,11 +111,14 @@
       ops.appendChild(b);
     });
     if (o.a) {
-      var ab = el('button', 'op ans', '答案');
-      ab.onclick = function () {
-        c.classList.toggle('open');
-        ab.textContent = c.classList.contains('open') ? '收起' : '答案';
+      var ab = el('button', 'op ans', '看答案');
+      var tog = function () {
+        var open = c.classList.toggle('open');
+        ab.textContent = open ? '收起答案' : '看答案';
       };
+      ab.onclick = tog;
+      tx.classList.add('tap');
+      tx.onclick = function (ev) { if (ev.target === ab) return; tog(); };
       ops.appendChild(ab);
     }
     c.appendChild(ops);
