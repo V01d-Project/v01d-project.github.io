@@ -11,7 +11,14 @@ window.SITE_INDEX = [
         { id: 5, name: '第5章 能量的供应和利用', live: true },
         { id: 6, name: '第6章 细胞的生命历程', live: true }
       ]},
-      { id: 2, name: '必修二 遗传与进化', chapters: [] },
+      { id: 2, name: '必修二 遗传与进化', chapters: [
+        { id: 1, name: '第1章 遗传因子的发现', live: true },
+        { id: 2, name: '第2章 基因和染色体的关系', live: true },
+        { id: 3, name: '第3章 基因的本质', live: true },
+        { id: 4, name: '第4章 基因的表达', live: true },
+        { id: 5, name: '第5章 基因突变及其他变异', live: true },
+        { id: 6, name: '第6章 生物的进化', live: true }
+      ]},
       { id: 3, name: '选择性必修一 稳态与调节', chapters: [] },
       { id: 4, name: '选择性必修二 生物与环境', chapters: [] },
       { id: 5, name: '选择性必修三 生物技术与工程', chapters: [] }
