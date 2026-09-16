@@ -56,6 +56,15 @@
   function writeMarks(sid, bid, cid, m) {
     try { localStorage.setItem(keyOf(sid, bid, cid), JSON.stringify(m)); } catch (e) {}
   }
+  function loadScript(url) {
+    return new Promise(function (res, rej) {
+      var s = document.createElement('script');
+      s.src = url;
+      s.onload = function () { res(); };
+      s.onerror = function () { rej(new Error(url)); };
+      document.head.appendChild(s);
+    });
+  }
   function loadData(url) {
     return new Promise(function (res, rej) {
       var s = document.createElement('script');
@@ -115,7 +124,7 @@
 
   /* ============ 首页 ============ */
   function home() {
-    loadData('data/index.js').then(function () {
+    loadScript('data/index.js').then(function () {
       var box = document.getElementById('root');
       (window.SITE_INDEX || []).forEach(function (s) {
         var sec = el('section', 'subj');
@@ -246,7 +255,7 @@
   /* ============ 整本检测 ============ */
   function bookPage(sid, bid) {
     var base = siteBase(sid);
-    loadData(base + '/data/index.js').then(function () {
+    loadScript(base + '/data/index.js').then(function () {
       var s = (window.SITE_INDEX || []).filter(function (x) { return x.id === sid; })[0];
       if (!s) throw new Error('no subject');
       var b = (s.books || []).filter(function (x) { return x.id === bid; })[0];
