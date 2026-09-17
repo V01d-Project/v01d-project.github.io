@@ -536,8 +536,124 @@
     paint();
   }
 
+  /* ============ 进度导出 / 导入 ============ */
+  // 标记全部躺在 localStorage，键名统一是 quiz:<科>:<册>-<章>。
+  // 导出一份 JSON 带到别的设备导入，就能接着标。
+  function allMarks() {
+    var out = {};
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf('quiz:') === 0) {
+          var v = localStorage.getItem(k);
+          if (v) out[k] = v;
+        }
+      }
+    } catch (e) {}
+    return out;
+  }
+  function markedCount(map) {
+    var n = 0;
+    for (var k in map) {
+      try { if (Object.keys(JSON.parse(map[k])).length) n++; } catch (e) {}
+    }
+    return n;
+  }
+  // 用设备本地日期做文件名——北京时间凌晨导出时，UTC 还是前一天，会写成昨天的日期
+  function todayLocal() {
+    var d = new Date();
+    var p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+  }
+  function exportProgress() {
+    var map = allMarks();
+    var n = markedCount(map);
+    if (!n) { toast('还没有标过题，没有可导出的进度'); return; }
+    var text = JSON.stringify({
+      app: 'gaokao-training', type: 'progress', v: 1,
+      exportedAt: new Date().toISOString(), exportedOn: todayLocal(), chapters: n, marks: map
+    });
+    try {
+      var url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+      var a = el('a');
+      a.href = url;
+      a.download = '题库进度-' + todayLocal() + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 3000);
+      toast('已导出 ' + n + ' 章进度');
+    } catch (e) {
+      showRaw(text);  // 不支持下载的浏览器（部分内嵌）——直接给文本自己存
+    }
+  }
+  function importProgress(file) {
+    var fr = new FileReader();
+    fr.onload = function () {
+      var d;
+      try { d = JSON.parse(String(fr.result)); } catch (e) { toast('这个文件不是 JSON'); return; }
+      if (!d || d.type !== 'progress' || !d.marks) { toast('不是本页导出的进度文件'); return; }
+      var keys = Object.keys(d.marks);
+      if (!keys.length) { toast('文件里没有进度'); return; }
+      var bad = 0, good = [];
+      keys.forEach(function (k) {
+        if (k.indexOf('quiz:') !== 0) { bad++; return; }
+        try { JSON.parse(d.marks[k]); good.push(k); } catch (e) { bad++; }
+      });
+      if (!good.length) { toast('文件里没有可用进度'); return; }
+      if (!confirm('导入会覆盖本机当前的全部标记。\n\n文件：' + good.length + ' 章' +
+                   (d.exportedOn || d.exportedAt ? '（导出于 ' + (d.exportedOn || d.exportedAt.slice(0, 10)) + '）' : '') +
+                   (bad ? '\n⚠️ ' + bad + ' 条格式不对，跳过' : '') +
+                   '\n\n确定继续？')) return;
+      // 导错也能救：把本机旧进度原样留在 quizBackup 里（不参与统计，不参与导出）
+      try { localStorage.setItem('quizBackup', JSON.stringify(allMarks())); } catch (e) {}
+      var old = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k0 = localStorage.key(i);
+        if (k0 && k0.indexOf('quiz:') === 0) old.push(k0);
+      }
+      old.forEach(function (k) { try { localStorage.removeItem(k); } catch (e) {} });
+      var ok = 0;
+      good.forEach(function (k) {
+        try { localStorage.setItem(k, d.marks[k]); ok++; } catch (e) {}
+      });
+      toast('已导入 ' + ok + ' 章，刷新中…');
+      setTimeout(function () { location.reload(); }, 800);
+    };
+    fr.onerror = function () { toast('读文件失败'); };
+    fr.readAsText(file);
+  }
+  function mountProgress() {
+    var bar = document.querySelector('.footbar-in');
+    var made = false;
+    if (!bar) {
+      var fb = el('div', 'footbar');
+      bar = el('div', 'footbar-in');
+      fb.appendChild(bar);
+      document.body.appendChild(fb);
+      made = true;
+    }
+    var exp = el('button', 'btn ghost', '导出');
+    exp.onclick = exportProgress;
+    var imp = el('button', 'btn ghost', '导入');
+    var inp = document.createElement('input');
+    inp.type = 'file';
+    inp.accept = '.json,application/json';
+    inp.style.display = 'none';
+    inp.onchange = function () {
+      if (inp.files && inp.files[0]) importProgress(inp.files[0]);
+      inp.value = '';
+    };
+    imp.onclick = function () { inp.click(); };
+    if (made) { exp.style.flex = '1'; imp.style.flex = '1'; }
+    bar.appendChild(exp);
+    bar.appendChild(imp);
+    document.body.appendChild(inp);
+  }
+
   /* ============ 分流 ============ */
   document.addEventListener('DOMContentLoaded', function () {
+    mountProgress();
     if (document.body.dataset.page === 'home') { home(); return; }
     var p = location.pathname.replace(/index\.html?$/, '');
     var mc = p.match(/\/([a-z]+)\/(\d+)-(\d+)\/?$/);
