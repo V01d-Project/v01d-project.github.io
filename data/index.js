@@ -40,7 +40,12 @@ window.SITE_INDEX = [
       ]}
     ]
   },
-  { id: 'chinese', name: '语文', books: [] },
+  { id: 'chinese', name: '语文', books: [
+    { id: 1, name: '古诗文默写', noReview: true, chapters: [
+      { id: 1, name: '必修上册 · 诗词', live: true },
+      { id: 2, name: '必修上册 · 文言文', live: true }
+    ]}
+  ] },
   { id: 'math', name: '数学', books: [] },
   { id: 'english', name: '英语', books: [
     { id: 1, name: '语法填空', noReview: true, chapters: [
