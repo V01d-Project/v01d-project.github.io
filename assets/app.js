@@ -196,6 +196,7 @@
       var marks = readMarks(sid, bid, cid);
       var qs = D.questions || [];
       var filter = 0;
+      var tagFilter = '';
 
       document.title = D.subject + ' ' + BOOK[bid] + ' ' + D.chapterName;
       document.getElementById('ttl').innerHTML = '';
@@ -229,6 +230,28 @@
             b.onclick = function () { filter = p[1]; paint(); };
             fbox.appendChild(b);
           });
+        var tags = [];
+        qs.forEach(function (q) { if (q.k && tags.indexOf(q.k) < 0) tags.push(q.k); });
+        if (tags.length > 1) {
+          var sel = document.createElement('select');
+          sel.className = 'tagsel';
+          var o0 = document.createElement('option');
+          o0.value = ''; o0.textContent = '全部篇目/主题（' + tags.length + '）';
+          sel.appendChild(o0);
+          tags.forEach(function (t) {
+            var o = document.createElement('option');
+            o.value = t; o.textContent = t + (tagCount(t) ? '（' + tagCount(t) + '）' : '');
+            sel.appendChild(o);
+          });
+          sel.value = tagFilter;
+          sel.onchange = function () { tagFilter = sel.value; paint(); };
+          fbox.appendChild(sel);
+        }
+      }
+      function tagCount(t) {
+        var n = stat(), c = 0;
+        qs.forEach(function (q, i) { if (q.k === t) c++; });
+        return c;
       }
       function paint() {
         head(); chips();
@@ -236,6 +259,7 @@
         var shown = 0;
         qs.forEach(function (q, i) {
           var k = marks[i] || 0;
+          if (tagFilter && q.k !== tagFilter) return;
           if (filter === -1 && k) return;
           if (filter > 0 && k !== filter) return;
           shown++;
