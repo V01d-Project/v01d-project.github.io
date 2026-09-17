@@ -41,9 +41,13 @@ window.SITE_INDEX = [
     ]
   },
   { id: 'chinese', name: '语文', books: [
-    { id: 1, name: '古诗文默写', noReview: true, chapters: [
-      { id: 1, name: '必修上册 · 诗词', live: true },
-      { id: 2, name: '必修上册 · 文言文', live: true }
+    { id: 1, name: '古诗文默写（60 篇）', noReview: true, chapters: [
+      { id: 1, name: '文言文 · 挖空', live: true },
+      { id: 2, name: '诗词曲 · 挖空', live: true },
+      { id: 3, name: '情景默写 · 文言文', live: true },
+      { id: 4, name: '情景默写 · 诗词曲', live: true },
+      { id: 5, name: '大总结 · 综合情景', live: true },
+      { id: 6, name: '开放性默写', live: true }
     ]}
   ] },
   { id: 'math', name: '数学', books: [] },
