@@ -587,6 +587,15 @@
       showRaw(text);  // 不支持下载的浏览器（部分内嵌）——直接给文本自己存
     }
   }
+  // 合并两份标记：同一题取「更差」的那档（③不会 > ②模糊 > ①会）；0 = 没标，忽略
+  function mergeMarks(localStr, fileStr) {
+    var read = function (s) { try { return JSON.parse(s || '{}') || {}; } catch (e) { return {}; } };
+    var a = read(localStr), b = read(fileStr);
+    var out = {}, k, v;
+    for (k in a) { v = +a[k] || 0; if (v) out[k] = v; }
+    for (k in b) { v = Math.max(out[k] || 0, +b[k] || 0); if (v) out[k] = v; }
+    return out;
+  }
   function importProgress(file) {
     var fr = new FileReader();
     fr.onload = function () {
@@ -601,23 +610,24 @@
         try { JSON.parse(d.marks[k]); good.push(k); } catch (e) { bad++; }
       });
       if (!good.length) { toast('文件里没有可用进度'); return; }
-      if (!confirm('导入会覆盖本机当前的全部标记。\n\n文件：' + good.length + ' 章' +
+      if (!confirm('导入会与本机进度合并（同一题取更差的那档：③不会 > ②模糊 > ①会）。\n' +
+                   '本机已有的标记不会丢。\n\n文件：' + good.length + ' 章' +
                    (d.exportedOn || d.exportedAt ? '（导出于 ' + (d.exportedOn || d.exportedAt.slice(0, 10)) + '）' : '') +
                    (bad ? '\n⚠️ ' + bad + ' 条格式不对，跳过' : '') +
                    '\n\n确定继续？')) return;
-      // 导错也能救：把本机旧进度原样留在 quizBackup 里（不参与统计，不参与导出）
+      // 合并前把本机进度原样留在 quizBackup（不参与统计、不参与导出），合并出问题能回退
       try { localStorage.setItem('quizBackup', JSON.stringify(allMarks())); } catch (e) {}
-      var old = [];
-      for (var i = 0; i < localStorage.length; i++) {
-        var k0 = localStorage.key(i);
-        if (k0 && k0.indexOf('quiz:') === 0) old.push(k0);
-      }
-      old.forEach(function (k) { try { localStorage.removeItem(k); } catch (e) {} });
       var ok = 0;
       good.forEach(function (k) {
-        try { localStorage.setItem(k, d.marks[k]); ok++; } catch (e) {}
+        var merged = mergeMarks(localStorage.getItem(k), d.marks[k]);
+        var n = Object.keys(merged).length;
+        try {
+          if (n) localStorage.setItem(k, JSON.stringify(merged));
+          else localStorage.removeItem(k);
+        } catch (e) {}
+        if (n) ok++;
       });
-      toast('已导入 ' + ok + ' 章，刷新中…');
+      toast('已合并 ' + ok + ' 章，刷新中…');
       setTimeout(function () { location.reload(); }, 800);
     };
     fr.onerror = function () { toast('读文件失败'); };
