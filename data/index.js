@@ -58,7 +58,8 @@ window.SITE_INDEX = [
     ]},
     { id: 2, name: '完形词块', noReview: true, chapters: [
       { id: 1, name: '四类线索 · 教程', live: true },
-      { id: 2, name: '词块辨析 · 背', live: true }
+      { id: 2, name: '词块辨析 · 背', live: true },
+      { id: 3, name: '真题拆解 · 教程', live: true }
     ]},
     { id: 3, name: '应用文', noReview: true, chapters: [
       { id: 1, name: '写作教程', live: true },
@@ -67,11 +68,17 @@ window.SITE_INDEX = [
       { id: 4, name: '申请信 · 背', live: true },
       { id: 5, name: '通知 · 背', live: true },
       { id: 6, name: '介绍 · 背', live: true },
-      { id: 7, name: '感谢信 · 背', live: true }
+      { id: 7, name: '感谢信 · 背', live: true },
+      { id: 8, name: '范文拆解 · 教程', live: true },
+      { id: 9, name: '审题 · 教程', live: true },
+      { id: 10, name: '道歉信 · 背', live: true },
+      { id: 11, name: '投诉信 · 背', live: true },
+      { id: 12, name: '求助信 · 背', live: true }
     ]},
     { id: 4, name: '读后续写', noReview: true, chapters: [
       { id: 1, name: '四步法 · 教程', live: true },
-      { id: 2, name: '高分句式 · 背', live: true }
+      { id: 2, name: '高分句式 · 背', live: true },
+      { id: 3, name: '真题拆解 · 教程', live: true }
     ]},
     { id: 5, name: '七选五', noReview: true, chapters: [
       { id: 1, name: '四个抓手 · 教程', live: true }
