@@ -48,6 +48,11 @@ window.SITE_INDEX = [
       { id: 4, name: '情景默写 · 诗词曲', live: true },
       { id: 5, name: '大总结 · 综合情景', live: true },
       { id: 6, name: '开放性默写', live: true }
+    ]},
+    { id: 2, name: '文言实词虚词', noReview: true, chapters: [
+      { id: 1, name: '翻译题写法 · 教程', live: true },
+      { id: 2, name: '120 个实词 · 语境', live: true },
+      { id: 3, name: '18 个虚词 · 语境', live: true }
     ]}
   ] },
   { id: 'math', name: '数学', books: [] },
