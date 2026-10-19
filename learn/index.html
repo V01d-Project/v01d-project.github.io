@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>学习入口</title>
+<style>
+  :root { --bg:#faf9f7; --fg:#1d1c1a; --muted:#6b6862; --card:#fff; --line:#e6e2db; --accent:#2f6f5e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#151412; --fg:#ece9e3; --muted:#9b968d; --card:#1f1d1a; --line:#302d28; --accent:#7fc3ae; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6; padding:32px 20px 56px; }
+  .wrap { max-width:640px; margin:0 auto; }
+  h1 { font-size:1.7rem; margin:0 0 6px; letter-spacing:.02em; }
+  .sub { color:var(--muted); margin:0 0 28px; font-size:.95rem; }
+  .grid { display:grid; gap:12px; }
+  .card { display:flex; flex-direction:column; gap:2px; text-decoration:none;
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px 18px; color:inherit; transition:border-color .15s, transform .15s; }
+  .card:hover { border-color:var(--accent); transform:translateY(-1px); }
+  .card strong { font-size:1.05rem; }
+  .card span { color:var(--muted); font-size:.88rem; }
+  .all { display:inline-block; margin-top:26px; color:var(--accent); text-decoration:none; font-size:.95rem; }
+  .all:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>学习入口</h1>
+  <p class="sub">选一门开始刷题，标完点「复制结果」发出去。</p>
+  <div class="grid">
+    <a class="card" href="../bio/1-1/"><strong>生物</strong><span>必修一 第1章 走近细胞</span></a>
+    <a class="card" href="../chinese/1-1/"><strong>语文</strong><span>必修一 第1章</span></a>
+    <a class="card" href="../english/1-1/"><strong>英语</strong><span>必修一 第1章</span></a>
+  </div>
+  <a class="all" href="../index.html">全部科目与章节 →</a>
+</div>
+</body>
+</html>
