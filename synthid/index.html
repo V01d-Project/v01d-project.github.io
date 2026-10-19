@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SynthID：给 AI 内容打上看不见的指纹</title>
+<style>
+:root{--bg:#0f1214;--panel:#171c1f;--fg:#e8ecea;--muted:#9aa6a1;--line:#263033;--accent:#3ddc97;--accent2:#ffb454;--bad:#ff6b6b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:50;transition:width .1s}
+nav{position:fixed;top:12px;right:16px;display:flex;gap:8px;z-index:40}
+nav a{width:9px;height:9px;border-radius:50%;background:#3a474b;display:block;transition:.2s}
+nav a.on{background:var(--accent);transform:scale(1.3)}
+main{max-width:780px;margin:0 auto;padding:64px 24px 120px}
+section{margin:0 0 120px;scroll-margin-top:60px}
+.kicker{color:var(--accent);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+h1{font-size:2.4rem;line-height:1.2;margin:.4rem 0 1rem}
+h2{font-size:1.9rem;line-height:1.3;margin:.3rem 0 1rem}
+h3{font-size:1.2rem;margin:2rem 0 .6rem}
+p{color:#cfd8d4}
+.lead{font-size:1.12rem;color:#dfe7e3}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}h1{font-size:1.9rem}h2{font-size:1.5rem}}
+.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:999px;background:#1f2a26;color:var(--accent);border:1px solid #2e463c;margin-right:6px}
+.muted{color:var(--muted);font-size:.9rem}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#1d2629;padding:2px 6px;border-radius:6px;font-size:.9em}
+.bar{height:26px;border-radius:6px;background:#222c30;overflow:hidden;margin:6px 0;position:relative}
+.bar i{display:block;height:100%;background:#3a474b;transition:width .4s}
+.bar b{position:absolute;left:10px;top:0;line-height:26px;font-size:.78rem;color:#cfd8d4;font-weight:600}
+button{background:var(--accent);color:#08110d;border:0;border-radius:9px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:.95rem}
+button.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+button:active{transform:translateY(1px)}
+.quiz .opt{display:block;width:100%;text-align:left;background:#151b1e;border:1px solid var(--line);color:var(--fg);padding:12px 14px;border-radius:10px;margin:8px 0;cursor:pointer;font-weight:400}
+.quiz .opt.right{border-color:var(--accent);background:#12281f}
+.quiz .opt.wrong{border-color:var(--bad);background:#2a1717}
+.quiz .fb{font-size:.9rem;color:var(--muted);margin:6px 0 0;min-height:1.4em}
+.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0}
+.flow div{background:#182024;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.flow span{color:var(--accent)}
+.warn{border-left:3px solid var(--accent2);padding-left:14px;color:#e6dcc8}
+footer{border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<nav id="dots">
+  <a href="#m1"></a><a href="#m2"></a><a href="#m3"></a><a href="#m4"></a><a href="#m5"></a>
+</nav>
+<main>
+
+<section id="m1">
+  <div class="kicker">01 · 问题</div>
+  <h1>AI 写的东西，肉眼已经分不出来了</h1>
+  <p class="lead">文字通顺、图片逼真、声音像真人。问题不是「它像不像」，而是「你能不能不靠猜就知道它是生成的」。</p>
+  <p>检测器常见的做法是训练一个分类器：看内容，猜它是不是 AI 写的。这条路的问题是——换个平台、换个模型、换种文体，判断就不稳，容易误伤真人写的东西。</p>
+  <p>SynthID 走的是另一条路：<strong>不是事后猜，而是在生成的时候就把标记埋进去。</strong>生成端和检测端共享一把「钥匙」，检测时不是靠风格像不像，而是看标记在不在。</p>
+  <div class="flow">
+    <div>生成时埋标记</div><span>→</span>
+    <div>内容照常发布</div><span>→</span>
+    <div>检测时读标记</div><span>→</span>
+    <div>给出置信度</div>
+  </div>
+  <p class="muted">SynthID 覆盖文本、图像、音频、视频。下面分开讲，重点放在文本——它最反直觉。</p>
+</section>
+
+<section id="m2">
+  <div class="kicker">02 · 文本水印</div>
+  <h2>不改一个字，只改「下一个词的概率」</h2>
+  <p>大模型生成文本，是一步一步选 token：每个候选词有一个概率分数，分数高的更可能被选中。SynthID 在这里动手——<strong>按一个只有生成方知道的规则，把一部分 token 的概率悄悄抬高。</strong></p>
+  <p>被抬高的那批 token 叫「绿色组」，其余叫「红色组」。正文读起来完全正常，因为被抬高的词本来就是合理候选；但整段文本里绿色词的比例，会比自然写作高出一截。</p>
+  <div class="card">
+    <div style="display:flex;gap:10px;margin-bottom:8px">
+      <button id="wmOn">打水印</button>
+      <button id="wmOff" class="ghost">不打水印</button>
+    </div>
+    <div id="bars"></div>
+    <p class="muted" id="wmNote">点「打水印」，看绿色组概率被抬高；文本本身仍然通顺。</p>
+  </div>
+  <h3>检测端在算什么</h3>
+  <p>检测器不需要原文，只需要同一套规则：把文本里的 token 按规则分成绿/红，数绿色占比。自然文本大约一半一半；水印文本会明显偏绿。偏离够大，统计检验就会给出「这是水印文本」的置信度。</p>
+  <p class="warn">关键点：水印改的是采样概率，不是内容。所以它不影响准确性、创造性和生成速度——代价是，<strong>它也没法阻止别人把文本重写一遍。</strong></p>
+</section>
+
+<section id="m3">
+  <div class="kicker">03 · 图像与视频</div>
+  <h2>像素里的水印，每一帧都盖一次</h2>
+  <p>图像的水印是直接改像素值：改动小到肉眼看不见，但检测器能读出来。难点在于内容会被压缩、裁剪、截图、转发——所以水印必须扛得住这些操作。</p>
+  <p>视频是逐帧处理的：<strong>每一帧都嵌入水印</strong>。单帧被裁掉一部分没关系，其他帧还在；帧越多，检测越稳。这就是为什么视频水印比单张图片更耐折腾。</p>
+  <div class="grid">
+    <div class="card"><span class="tag">图像</span><p>改像素，藏标记。压缩、缩放、轻度裁剪后仍可检测。</p></div>
+    <div class="card"><span class="tag">视频</span><p>逐帧嵌入，多帧投票。丢掉几帧不影响整体判断。</p></div>
+  </div>
+  <p class="muted">音频同理：把标记铺在频谱里，听不出来，但能解出来。</p>
+</section>
+
+<section id="m4">
+  <div class="kicker">04 · 检测</div>
+  <h2>它给的是置信度，不是判决书</h2>
+  <p>检测器输出的是一个分数：这段内容有多大概率带水印。分数高，说明标记对得上；分数低，<strong>不等于「不是 AI 生成」</strong>——可能只是水印被洗掉了，或者这段内容本来就没走 SynthID。</p>
+  <div class="card">
+    <p style="margin-top:0">拖动模拟：一段文本里绿色 token 的占比</p>
+    <input id="ratio" type="range" min="40" max="90" value="50" style="width:100%">
+    <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted)"><span>40%</span><span id="ratioVal">50%</span><span>90%</span></div>
+    <div class="bar" style="margin-top:12px"><i id="confBar" style="width:8%;background:var(--accent)"></i><b id="confTxt">置信度 低</b></div>
+    <p class="muted" id="confNote">自然文本大约 50%。越往右，越像是带了水印。</p>
+  </div>
+  <p>这也是官方反复强调的：SynthID 不是「银弹」，它是一块积木，要和来源标注、内容凭证、人工判断一起用。</p>
+</section>
+
+<section id="m5">
+  <div class="kicker">05 · 边界</div>
+  <h2>什么时候它就不灵了</h2>
+  <div class="grid">
+    <div class="card"><h3 style="margin-top:0">有效</h3><p>长文本、自由写作（文章、剧本、邮件变体）；轻度改写、删几个词、裁一段。</p></div>
+    <div class="card"><h3 style="margin-top:0">容易失效</h3><p>彻底重写、翻译成另一种语言、事实性问答（「法国首都在哪」这种没有改写空间的回答）。</p></div>
+  </div>
+  <p>原因不复杂：水印靠「有选择空间」才能藏。事实题只有一个正确答案，模型没有余地调整概率，标记就埋不进去。</p>
+
+  <div class="card quiz" id="quiz">
+    <h3 style="margin-top:0">三道题，确认你真的懂了</h3>
+    <div class="q" data-answer="1">
+      <p><strong>1. 文本水印改的是什么？</strong></p>
+      <button class="opt">改写句子结构，让风格可识别</button>
+      <button class="opt">调整 token 的采样概率</button>
+      <button class="opt">在文本末尾追加隐藏字符</button>
+      <p class="fb"></p>
+    </div>
+    <div class="q" data-answer="2">
+      <p><strong>2. 检测分数低，说明什么？</strong></p>
+      <button class="opt">一定是人写的</button>
+      <button class="opt">检测器坏了</button>
+      <button class="opt">没检出标记，不能反推来源</button>
+      <p class="fb"></p>
+    </div>
+    <div class="q" data-answer="0">
+      <p><strong>3. 哪种内容水印最难生效？</strong></p>
+      <button class="opt">有唯一正确答案的事实问答</button>
+      <button class="opt">一篇长影评</button>
+      <button class="opt">一段自由发挥的剧本</button>
+      <p class="fb"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>材料来源：Google DeepMind 官方博客《Watermarking AI-generated text and video with SynthID》（2024-05-14）、Google 官方 SynthID 文档。课程为中文教学改编。</p>
+  <p>水印不是万能证据：检测结果只代表「标记在不在」，不代表内容真假对错。</p>
+</footer>
+</main>
+<script>
+const prog=document.getElementById('prog');
+const dots=[...document.querySelectorAll('#dots a')];
+const secs=[...document.querySelectorAll('main section')];
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  let idx=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<200)idx=i});
+  dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+},{passive:true});
+
+const groups=[['的','了','是','在','和','有','这','就'],['一个','我们','可以','因为','所以','但是','如果','然后']];
+function draw(on){
+  const box=document.getElementById('bars');box.innerHTML='';
+  groups.forEach((g,gi)=>{
+    g.forEach((w,i)=>{
+      const green=(i%2===0);
+      const base=green?(on?58+gi*4:28+gi*2):(on?20:26);
+      const el=document.createElement('div');el.className='bar';
+      el.innerHTML='<i style="width:'+base+'%;background:'+(green?'#2f8f6a':'#3a474b')+'"></i><b>'+w+' · '+(green?'绿组':'红组')+' '+base+'%</b>';
+      box.appendChild(el);
+    });
+  });
+  document.getElementById('wmNote').textContent=on?'绿色组被整体抬高，但每个词放进句子里都仍然通顺。':'不加水印时，绿组和红组概率接近，检测器看到的就是普通文本。';
+}
+document.getElementById('wmOn').onclick=()=>draw(true);
+document.getElementById('wmOff').onclick=()=>draw(false);
+draw(false);
+
+const ratio=document.getElementById('ratio'),rv=document.getElementById('ratioVal'),cb=document.getElementById('confBar'),ct=document.getElementById('confTxt'),cn=document.getElementById('confNote');
+ratio.oninput=()=>{
+  const v=+ratio.value;rv.textContent=v+'%';
+  const conf=Math.max(0,Math.min(100,(v-50)*2.6));
+  cb.style.width=conf+'%';cb.style.background=conf>60?'var(--accent)':conf>25?'var(--accent2)':'#3a474b';
+  ct.textContent='置信度 '+(conf>60?'高':conf>25?'中':'低');
+  cn.textContent=v<=52?'接近自然文本，检测器不会下结论。':v>=75?'明显偏绿，统计上已经很像带水印的文本。':'有一点偏移，但还不够下判断。';
+};
+
+document.querySelectorAll('#quiz .q').forEach(q=>{
+  const ans=+q.dataset.answer,fb=q.querySelector('.fb');
+  [...q.querySelectorAll('.opt')].forEach((b,i)=>{
+    b.onclick=()=>{
+      [...q.querySelectorAll('.opt')].forEach(x=>x.classList.remove('right','wrong'));
+      if(i===ans){b.classList.add('right');fb.textContent='对。';}
+      else{b.classList.add('wrong');q.querySelectorAll('.opt')[ans].classList.add('right');fb.textContent='正确答案已标出。';}
+    };
+  });
+});
+</script>
+</body>
+</html>
