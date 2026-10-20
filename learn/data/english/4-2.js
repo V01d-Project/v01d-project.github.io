@@ -1,0 +1,77 @@
+window.QUIZ_DATA = {
+  subject: '英语', subjectId: 'english',
+  bookId: 4, bookName: '读后续写',
+  chapterId: 2, chapterName: '高分句式 · 背',
+  hideDefault: 'en',
+  items: [
+
+    // ── 动作描写 ──
+    { en: 'With his heart pounding, he ___.', zh: '心砰砰跳着，他……。写紧张的行动前用（上台、拆信封、追赶之前），先给身体一个反应，再接主要动作。' },
+    { en: 'She quickened her pace, her eyes fixed on the figure ahead.', zh: '她加快脚步，眼睛盯着前面那个人影。适合追赶、跟踪、赶时间的场面；独立主格补一个伴随动作。' },
+    { en: 'He dashed towards the gate, not daring to look back.', zh: '他朝大门冲去，不敢回头。dash 比 run 更急；适合逃跑、抢时间的瞬间。' },
+    { en: 'Holding his breath, he tiptoed to the door.', zh: '他屏住呼吸，踮着脚走到门边。现在分词开头，动作连贯；适合偷看、夜里行动的场面。' },
+    { en: 'She seized his hand and held it tight.', zh: '她抓住他的手，紧紧握着。seize 比 hold 有力；适合挽留、道别、安抚。' },
+    { en: 'His hands were trembling so much that he could hardly ___.', zh: '他的手抖得几乎……。so ... that 表示程度；适合紧张、害怕、激动到做不好事情。' },
+    { en: 'Tears welled up in her eyes before she could wipe them away.', zh: '泪水涌上她的眼眶，她还没来及擦掉。适合委屈、感动、久别重逢的瞬间。' },
+    { en: 'He raised his head slowly, his eyes meeting hers.', zh: '他慢慢抬起头，目光遇上了她的。适合对视、认错、告白的场面；独立主格写"同时发生"。' },
+    { en: 'He hesitated for a moment, then made up his mind and stepped forward.', zh: '他犹豫了一下，然后下定决心走上前去。放在做决定之前的一小段停顿，能自然地推情节。' },
+    { en: 'She threw her arms around him and patted him gently on the back.', zh: '她张开双臂抱住他，轻轻拍了拍他的背。注意 pat sb on the back 中间用 the；适合重逢、安慰、和解。' },
+    { en: 'Together they pushed the heavy box, inch by inch.', zh: '他们一起推那个沉重的箱子，一寸一寸地。写需要协作解决的场面；inch by inch 写出艰难。' },
+    { en: 'He stood rooted to the spot, unable to move.', zh: '他钉在原地，动弹不得。rooted to the spot 是固定说法；适合听到坏消息、撞见意外时的一愣。' },
+    { en: 'She wiped her hands on her apron and hurried to the door.', zh: '她在围裙上擦了擦手，匆匆走向门口。生活化的小动作细节，适合写普通人的日常。' },
+    { en: 'He dropped to his knees and searched the ground with both hands.', zh: '他跪了下来，两只手在地上摸索。写急切寻找、东西丢了之后的场面；drop to his knees 动作感强。' },
+    { en: 'Without a word, she turned and walked away, her shoulders shaking.', zh: '她一句话也没说，转身走了，肩膀在抖。写忍着泪离开的场面；用肩膀抖代替"她在哭"，更含蓄。' },
+    { en: 'He took a deep breath and pushed the door open.', zh: '他深吸一口气，把门推开了。万能的"做决定之前"用句，放在任何关键时刻前面都成立。' },
+
+    // ── 心理描写 ──
+    { en: 'A wave of ___ swept over him.', zh: '一阵……涌上他的心头。a wave of + 情绪 + sweep over sb；紧张、后悔、喜悦都能填，最省事的一句。' },
+    { en: 'His heart raced, and a cold fear crept up his spine.', zh: '他心跳加速，一股冰冷的恐惧顺着脊背爬了上来。适合突发危险、独自走夜路。' },
+    { en: 'He let out a long breath, a heavy weight lifting from his chest.', zh: '他长长地出了一口气，胸口的重担落了地。适合悬念解开、虚惊一场之后。' },
+    { en: 'Regret washed over her; how she wished she had listened to him.', zh: '悔意涌上她的心头；她多希望当初听了他的话。wish + had done 表示对过去的后悔；适合"早知道就……"的收尾。' },
+    { en: 'Something inside him hardened; he would not give up this time.', zh: '他心里有什么东西变坚定了；这一次他不会再放弃。适合人物下决心、情节转向的地方。' },
+    { en: 'Her eyes lit up, and her heart beat faster with excitement.', zh: '她眼睛一亮，激动得心跳都变快了。适合收到好消息、见到想念的人。' },
+    { en: 'He blamed himself again and again for not being there.', zh: '她需要他的时候他不在，他一遍遍地责怪自己。blame sb for doing sth；适合容易自责的人物。' },
+    { en: 'Warmth spread through her chest, and the corners of her mouth turned up.', zh: '暖意在她胸口散开，她的嘴角扬了起来。适合被帮助、被理解之后的柔和时刻。' },
+    { en: 'A thousand questions crowded into his mind, but he could not answer a single one.', zh: '千百个问题挤进他脑子里，可他一个也答不上来。写震惊、混乱的当下；注意 a single one 的语气。' },
+    { en: 'He could not tell whether it was excitement or fear that made his hands shake.', zh: '他分不清是兴奋还是害怕让他手抖。适合情绪复杂的时刻；whether ... or 结构清楚好记。' },
+    { en: 'For the first time in years, he felt that someone actually understood him.', zh: '这么多年来第一次，他觉得有人真的懂他。适合故事转折、被理解时用；For the first time in years 是万能开头。' },
+    { en: 'She bit her lip, fighting back the words she had wanted to say for so long.', zh: '她咬着嘴唇，把憋了很久的话咽了回去。适合有话说不出、倔强、委屈的场面。' },
+    { en: 'The thought struck him like a blow: he had been wrong all along.', zh: '这个念头像一拳打在他身上：他一直都错了。写突然醒悟；strike sb like a blow 比 realize 有力得多。' },
+    { en: 'Relief and shame came together, and he did not know which to feel first.', zh: '轻松和羞愧一起涌上来，他不知道自己该先感受哪一个。写情绪矛盾；适合做错事后被原谅的场面。' },
+    { en: 'He kept telling himself it would be all right, but his heart did not believe it.', zh: '他反复告诉自己没事的，可他的心不信。写硬撑、自我安慰；用 but 直接拆穿，比"他很害怕"高明。' },
+    { en: 'Nothing had changed, and yet everything felt different.', zh: '什么都没变，可一切又都不一样了。写心境的转变；这句话适合放在第二段情感落点处收束。' },
+
+    // ── 环境描写 ──
+    { en: 'The sky was turning grey, and a cold wind swept across the empty playground.', zh: '天色转灰，冷风扫过空荡荡的操场。写傍晚、散场、心情低落时的环境；先天气、后人物。' },
+    { en: 'Snow was falling softly, covering the street in a thin white blanket.', zh: '雪轻轻落着，街道盖上了一层薄薄的白毯。写安静、温柔的场面；a thin white blanket 是很好用的比喻。' },
+    { en: 'The rain beat against the window, and the room grew darker and darker.', zh: '雨敲着窗户，屋里越来越暗。写等待、焦虑、事情悬着的时候；用环境的变化推时间的流逝。' },
+    { en: 'A pale morning light crept through the curtains and fell on the empty chair.', zh: '苍白的晨光从窗帘缝里爬进来，落在空椅子上。写早晨、失落、某个人不在了的场面。' },
+    { en: 'The old house stood silent at the end of the lane, its windows dark.', zh: '老房子在巷子尽头静静地立着，窗户都是黑的。写重逢、回家、物是人非的开头。' },
+    { en: 'Leaves were drifting down one by one, and the whole street smelled of autumn.', zh: '叶子一片一片地落下来，整条街都是秋天的味道。写秋天、回忆、慢下来的时段；用感官细节。' },
+    { en: 'The sun broke through the clouds just as they stepped out of the door.', zh: '他们刚走出门，太阳就从云里露了出来。写转机出现、心情变好的时刻；环境跟着情节一起转。' },
+    { en: 'It was the kind of evening when everything seems to slow down.', zh: '就是那种一切都慢下来的傍晚。万能的舒缓氛围句，适合放在情感落点之前。' },
+    { en: 'The wind died down, and for a moment the whole town seemed to hold its breath.', zh: '风停了，有那么一会儿，整个小镇像是屏住了呼吸。写最紧张的一刻之前，用环境制造安静。' },
+    { en: 'The candles on the table flickered, throwing long shadows on the wall.', zh: '桌上的蜡烛晃着，在墙上拉出长长的影子。写夜晚、室内、两三个人交谈的场面。' },
+    { en: 'Outside, the first stars appeared above the rooftops.', zh: '外面，第一批星星出现在屋顶上方。写一天结束、收尾处的时间标记，配"很久"的感觉。' },
+    { en: 'The classroom was quiet except for the sound of a pen scratching on paper.', zh: '教室里很安静，只有笔在纸上沙沙响。写考试、专注、一个人的场景；except for 是好用的结构。' },
+    { en: 'It had been raining all week, and the road was still wet under their feet.', zh: '雨下了一整个星期，脚下的路还是湿的。写时间跨度（一周）+ 当下的场面，两句并一句。' },
+    { en: 'A single light was still on in the window at the far end of the street.', zh: '街那头，有一扇窗还亮着灯。写深夜、有人在等、有人在找；用一个亮点收住整个画面。' },
+
+    // ── 衔接与结尾 ──
+    { en: 'Just then, ___.', zh: '就在这时，……。最常用的转折开头，用来把情节推向下一个动作；后面接过去时。' },
+    { en: 'To his surprise, ___ / Much to her relief, ___.', zh: '让他意外的是……／让她松了一大口气的是……。写事情出乎意料地转好；to one\'s + 名词 是固定结构。' },
+    { en: 'However, things did not go as smoothly as they had expected.', zh: '然而，事情并不像他们想的那么顺利。第一段末尾留钩子的万能句；后面正好接"更糟的事"。' },
+    { en: 'But before anyone could say a word, ___.', zh: '可还没等任何人开口，……。写突如其来的变故，节奏快；适合第一段或第二段开头。' },
+    { en: 'Not until that moment did he realize ___.', zh: '直到那一刻，他才意识到……。倒装结构，写恍然大悟；放第二段最关键的位置。' },
+    { en: 'From that day on, ___.', zh: '从那天起，……。收尾时拉长时间，写"这件事改变了他"；后面接过去时。' },
+    { en: 'It was then that he finally understood what she had meant.', zh: '就是在那时，他终于明白了她那句话的意思。回扣前文伏笔的收尾句；强调句 it was ... that 很好用。' },
+    { en: 'As time went by, the memory of that day never faded.', zh: '时间一天天过去，那天的记忆却从没淡过。写故事结束、时间拉长的收尾。' },
+    { en: 'In the end, what mattered was not the gift, but ___.', zh: '到最后，重要的不是那份礼物，而是……。点明主题但不说教；not ... but ... 结构干净有力。' },
+    { en: 'He did not say a word, but his eyes said everything.', zh: '他一句话也没说，但眼睛说明了一切。写沉默的情感落点；短、克制、好用。' },
+    { en: 'By the time the sun went down, ___.', zh: '太阳落山的时候，……。by the time 后接过去时，主句也过去时；写时间推进 + 结局。' },
+    { en: 'Looking back now, she still remembers the warmth of that afternoon.', zh: '现在回头看，她还记得那个下午的暖意。回忆式收尾，适合故事已经过了一段时间。' },
+    { en: 'Neither of them spoke; there was no need to.', zh: '两个人谁都没说话；也没必要说话了。用分号收尾，干净利落；适合和解、释怀的场面。' },
+    { en: 'When he walked out of the door that morning, he had no idea that ___.', zh: '那天早上他走出门的时候，不知道……。开头或结尾都能用的悬念句；后面接过去完成时。' }
+
+  ]
+};
