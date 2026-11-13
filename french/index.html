@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>清雪的法语手册 · 语法与变位</title>
+<style>
+:root{color-scheme:dark;--bg:#111916;--panel:#1b2621;--raised:#25332b;--text:#edf1e8;--muted:#b3c1b7;--line:#3c4d41;--accent:#c9e49a;--ink:#1d2c15;--bad:#ffb3a9;--good:#b5e4bd;--shadow:0 12px 32px #0002}
+@media(prefers-color-scheme:light){:root{color-scheme:light;--bg:#f3f4ec;--panel:#fffef9;--raised:#e7ecdf;--text:#202d24;--muted:#56655b;--line:#cbd4c4;--accent:#395c2a;--ink:#fff;--bad:#a62b25;--good:#256238;--shadow:0 12px 32px #27351b09}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}button,input,select,textarea{font:inherit}button,select,label.file{min-height:44px}button,label.file{border:1px solid var(--line);border-radius:12px;background:var(--raised);color:var(--text);padding:9px 15px;cursor:pointer}button:hover,label.file:hover{border-color:var(--accent)}button:disabled{opacity:.55;cursor:default}button.primary{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700}button.ghost{background:transparent}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}input,select,textarea{max-width:100%;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px;min-height:48px}input[type=checkbox]{min-height:24px;width:24px;height:24px;flex-shrink:0;accent-color:var(--accent)}label{display:block}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(30px,7vw,44px);line-height:1.2;letter-spacing:-1px;margin-bottom:18px}h2{font-size:27px;line-height:1.4}h3{font-size:20px;line-height:1.5;margin-bottom:12px}p{margin-bottom:16px}small,.muted{color:var(--muted);font-size:17px}.eyebrow{color:var(--accent);font-size:17px;letter-spacing:2px;margin-bottom:14px}.shell{max-width:760px;margin:auto;padding:24px 20px 64px}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line)}.brand{font-weight:700}.pill{border:1px solid var(--line);border-radius:99px;padding:3px 10px;font-size:17px;color:var(--muted)}.progress-box{margin:22px 0 26px}.between{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}progress{width:100%;height:9px;display:block;margin-top:12px;border:0;border-radius:99px;overflow:hidden;background:var(--raised);accent-color:var(--accent)}progress::-webkit-progress-bar{background:var(--raised)}progress::-webkit-progress-value{background:var(--accent)}progress::-moz-progress-bar{background:var(--accent)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.module-card{text-align:left;display:flex;flex-direction:column;gap:10px;min-height:178px;background:var(--panel);padding:18px;box-shadow:var(--shadow)}.module-card strong{font-size:21px}.module-card .number{color:var(--accent);font-variant-numeric:tabular-nums}.module-card small{line-height:1.5}.module-card .status{margin-top:auto;color:var(--accent)}.panel,.rule,.quiz-item{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0;min-width:0}.panel.soft{background:var(--raised)}.rule h3{display:flex;gap:10px;align-items:baseline}.rule-number{font-size:17px;color:var(--accent);white-space:nowrap}.example{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}.fr{font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:1.55;overflow-wrap:anywhere}.example .zh{color:var(--muted);margin-top:4px}.speak{padding:6px 14px;min-width:44px;margin-top:7px}.toolbar,.actions,.accents,.choices{display:flex;gap:8px;flex-wrap:wrap}.toolbar{margin:18px 0}.actions{margin-top:18px}.accents{margin:10px 0}.accents button{min-width:44px;min-height:44px;padding:4px 10px}.field{width:100%;display:block}.choices{margin:14px 0}.choices button{flex:1 1 120px;text-align:left}.feedback{margin-top:14px;padding:14px;border-radius:10px;background:var(--raised);overflow-wrap:anywhere}.correct{color:var(--good)}.incorrect{color:var(--bad)}.diff{white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:20px;overflow-wrap:anywhere}.diff mark{background:var(--bad);color:var(--bg);text-decoration:underline;text-underline-offset:4px}.table-wrap{overflow-x:auto;max-width:100%;margin:15px 0}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px 7px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}th{font-weight:600;color:var(--muted)}.filters{display:grid;grid-template-columns:1fr 1fr;gap:12px}.filters label{min-width:0}.filters select{display:block;width:100%;margin-top:6px}.full{grid-column:1/-1}details{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0;background:var(--panel)}summary{min-height:44px;cursor:pointer;display:list-item;padding:6px 0}.word{padding:14px 0;border-bottom:1px solid var(--line)}.word:last-child{border-bottom:0}.word-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.check{display:flex;align-items:flex-start;gap:12px;padding:12px 0;min-height:48px;cursor:pointer}.check input{margin-top:4px}.reading{line-height:1.95}.reading b{color:var(--accent)}.notice{color:var(--muted);border-left:3px solid var(--accent);padding:8px 14px;margin:20px 0}.nav-select{width:100%}.toast{position:fixed;left:16px;right:16px;bottom:20px;max-width:720px;margin:auto;background:var(--text);color:var(--bg);padding:14px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:10}footer{margin-top:32px;color:var(--muted)}[hidden]{display:none!important}a{color:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.empty{text-align:center;padding:32px 12px;color:var(--muted)}@media(max-width:420px){.shell{padding:18px 16px 56px}.grid{gap:10px}.module-card{padding:14px;min-height:188px}.panel,.rule,.quiz-item{padding:16px}.filters{grid-template-columns:1fr}.module-card strong{font-size:20px}.topline{align-items:flex-start}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+#main:focus{outline:none}.rule h3{display:block;overflow-wrap:anywhere}.rule-number{display:inline-block;margin-right:10px}p,h1,h2,h3,button,summary{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div class="topline"><span class="brand">清雪 / 法语手册</span><span class="pill">离线 · 自定进度</span></div><div class="progress-box"><div class="between"><span>我的进度</span><strong id="progressText">0 / 8 模块</strong></div><progress id="progress" value="0" max="8" aria-label="已完成模块"></progress></div></header>
+<nav class="toolbar" aria-label="主要导航"><button id="homeBtn" class="ghost">全部模块</button><button id="wrongBtn" class="ghost">错题本 <span id="wrongCount">0</span></button><button id="dataBtn" class="ghost">进度备份</button></nav>
+<main id="main" tabindex="-1"></main>
+<footer>先认得，再默写，再把它写进自己的句子。<br>无需登录；进度只留在当前浏览器，换设备前先导出。</footer>
+</div><div id="toast" class="toast" role="status" hidden></div>
+<script>
+'use strict';
+const KEY='fr_grammar_v1';
+const MODULES=[['名词短语','从词的性、数，到一句里的配合'],['句子骨架','把零件排成句子，否定与提问'],['五种时态','先知道每一种在说什么'],['代词','避免重复，把句子连起来'],['介词与表达','说清时间、地点与方向'],['变位训练器','一次 10 题，默写才算数'],['高频词表 200','8 个主题，带着短语记'],['验收','四项过关，再向写作前进']];
+const GRAMMAR=[
+{rules:[
+['名词连冠词一起记性，复数通常加 -s，但 -eau 常变 -eaux、-al 常变 -aux。', [['Le livre est ici.','书在这里。'],['Les maisons sont grandes.','这些房子很大。'],['Les journaux sont sur la table.','报纸在桌上。']]],
+['定冠词 le/la/l’/les 指已知或泛指，不定冠词 un/une/des 引入可数事物，部分冠词 du/de la/de l’ 表示不定量。',[['J’aime le café.','我喜欢咖啡。'],['J’ai une pomme et des poires.','我有一个苹果和几个梨。'],['Je bois de l’eau et je mange du pain.','我喝水、吃面包。']]],
+['一般否定中 un/une/des 和部分冠词变 de/d’，定冠词保留，être 后的表语通常也保留原冠词。',[['Je n’ai pas de voiture.','我没有汽车。'],['Je n’aime pas le café.','我不喜欢咖啡。'],['Ce n’est pas une erreur.','这不是一个错误。']]],
+['形容词通常在名词后，petit/grand/beau 等常放前面，位置变化有时也会改变意思。',[['C’est une voiture rouge.','这是一辆红色汽车。'],['Elle a un petit sac.','她有一个小包。'],['C’est un beau jardin.','这是一个漂亮的花园。']]],
+['形容词随名词作性数配合，阴性通常加 -e、复数通常加 -s，并记住 blanc/blanche 等特殊形式。',[['La porte est ouverte.','门开着。'],['Les maisons sont blanches.','这些房子是白色的。'],['Ce sont de petits livres.','这些是小书（前置复数形容词前 des 通常变 de）。']]],
+['主有形容词按所拥有之物选 mon/ma/mes、ton/ta/tes、son/sa/ses、notre/nos、votre/vos、leur/leurs，元音或哑音 h 前的阴性单数用 mon/ton/son。',[['Mon frère aime ma sœur.','我的哥哥喜欢我的妹妹。'],['Son amie habite ici.','他或她的女性朋友住这里。'],['Leurs enfants parlent français.','他们的孩子们说法语。']]]
+],q:[
+['填空：___ maison（一个房子）','une',1,'maison 是阴性，单数不定冠词用 une。'],
+['填空：un journal → des ___','journaux',1,'journal 的复数是 journaux。'],
+['选择：Je bois ___ lait.（一些牛奶）',['du','le','un'],2,'这里表示喝一些牛奶，用部分冠词 du。'],
+['填空：Je n’ai pas ___ chat.','de',3,'一般否定中不定冠词变 de。'],
+['判断：Je n’aime pas de café. 能表达“我不喜欢咖啡”。',['错','对'],3,'aimer 泛指某物用定冠词：Je n’aime pas le café.'],
+['选择：这不是一支笔。Ce n’est pas ___ stylo.',['un','de','du'],3,'être 后表语的冠词通常不因否定而变 de。'],
+['选择：一辆红色汽车',['une voiture rouge','une rouge voiture'],4,'颜色形容词通常在名词后。'],
+['填空：Les portes sont ___ .（ouvert）','ouvertes',5,'portes 是阴性复数，形容词加 -es。'],
+['填空：___ amie（我的女性朋友）','mon',6,'amie 以元音开头，虽然是阴性也用 mon。'],
+['选择：他们的书（不止一本）',['leurs livres','leur livres','ses livres'],6,'多个所有者、多个物品，用 leurs。']
+]},
+{rules:[
+['基本语序是主语＋动词＋补语，主语代词为 je/tu/il/elle/on/nous/vous/ils/elles，其中 on 用第三人称单数、vous 可表复数或敬称。',[['Nous apprenons le français.','我们学习法语。'],['On travaille ensemble.','我们一起工作。'],['Vous êtes professeur ?','您是老师吗？']]],
+['书面否定用 ne/n’…pas 夹住变位动词，复合时态夹助动词，否定不定式则把 ne pas 放在不定式前。',[['Je ne parle pas anglais.','我不说英语。'],['Elle n’a pas mangé.','她没吃东西。'],['Je préfère ne pas sortir.','我更愿意不出门。']]],
+['一般疑问可用升调、est-ce que 或主谓倒装，倒装以连字符连接，第三人称元音相接时补 -t-。',[['Tu viens ?','你来吗？（升调）'],['Est-ce que tu viens ?','你来吗？（est-ce que）'],['Parle-t-elle français ?','她说法语吗？（倒装）']]],
+['识别人或物常用 c’est＋限定词＋名词，描述已知对象常用 il/elle est＋形容词或不带冠词的职业名词，复数识别用 ce sont。',[['C’est une étudiante.','这是一名女学生。'],['Elle est étudiante et elle est française.','她是学生，她是法国人。'],['Ce sont mes amis.','这些是我的朋友。']]],
+['il y a 表示“有”，否定是 il n’y a pas de，提问可用 est-ce qu’il y a。',[['Il y a un livre sur la table.','桌上有一本书。'],['Il n’y a pas de pain.','没有面包。'],['Est-ce qu’il y a une gare ici ?','这里有火车站吗？']]],
+['代词式动词用 me/te/se/nous/vous/se 对应主语，简单时态把它放在变位动词前。',[['Je me lève tôt.','我起得早。'],['Nous nous appelons souvent.','我们经常互相打电话。'],['Elle ne se couche pas tard.','她睡得不晚。']]]
+],q:[
+['填空：___ sommes à la maison.','Nous',1,'sommes 对应 nous。'],
+['选择：on 的动词用哪一格？',['第三人称单数','第一人称复数'],1,'on 即使表示“我们”，也接第三人称单数。'],
+['填空：Je ___ aime pas le thé.（填缩合形式）',"n’",2,'元音前 ne 缩合为 n’。'],
+['选择：她没吃。',["Elle n’a pas mangé.","Elle a ne mangé pas."],2,'复合过去时的否定夹住助动词 a。'],
+['填空：___ tu viens ?（用 est-ce que）','Est-ce que',3,'est-ce que 后保留陈述语序。'],
+['选择：她来吗？（倒装）',['Vient-elle ?','Vient-t-elle ?'],3,'vient 已有词尾 t，不再补一个 t。'],
+['填空：___ une belle maison.（这是一座漂亮的房子）',"C’est",4,'识别一座房子，用 c’est＋名词短语。'],
+['选择：他是老师。',['Il est professeur.','Il est un professeur.'],4,'此处单纯说明职业，用无冠词的 professeur。'],
+['填空：Il n’y a pas ___ lait.','de',5,'il n’y a pas 后的不定量用 de。'],
+['填空：Nous ___ levons tôt.','nous',6,'nous 对应反身代词 nous。']
+]},
+{rules:[
+['现在时说现在、习惯和事实，规则 -er/-ir/-re 词尾分别为 e/es/e/ons/ez/ent、is/is/it/issons/issez/issent、s/s/零词尾/ons/ez/ent。',[['Je travaille ici aujourd’hui ; hier, j’ai travaillé à la maison.','我今天在这里工作；昨天我在家工作（现在与已完成事件）。'],['Nous finissons à six heures et il vend du pain.','我们六点结束，他卖面包。']]],
+['复合过去时用 avoir 或 être 的现在时＋过去分词说已完成的事，être 类与主语配合，avoir 类通常不配合但前置直接宾语需配合。',[['Hier, elle est arrivée ; avant, elle arrivait toujours tard.','昨天她到了；以前她总是很晚到（一次事件与过去习惯）。'],['Elles ont acheté les fleurs ; les fleurs qu’elles ont achetées sont belles.','她们买了花；她们买的花很美（直接宾语提前后配合）。'],['Elle s’est levée tôt, puis elle s’est lavé les mains.','她很早起床，随后洗了手（第二句 les mains 是后置直接宾语，lavé 不配合）。']]],
+['未完成过去时说过去背景、习惯或状态，用现在时 nous 去 -ons 加 ais/ais/ait/ions/iez/aient，être 特用 ét-。',[['Il pleuvait quand je suis sortie.','我出去时正在下雨（下雨是背景，出去是事件，说话者为女性）。'],['Avant, nous habitions à Lyon ; maintenant, nous habitons à Paris.','以前我们住里昂，现在住巴黎（过去状态与现在）。'],['Nous étions jeunes et nous étudiions ensemble.','我们那时年轻，一起学习。']]],
+['近将来用 aller 的现在时＋不定式表示即将做或已经打算做的事。',[['Je mange maintenant ; je vais travailler après.','我现在吃饭，之后准备工作（现在与计划）。'],['Nous allons prendre le train demain.','我们打算明天坐火车。']]],
+['条件式现在时可表达礼貌请求，本轮只默写 je/vous，以将来词干加未完成过去时词尾构成。',[['Je veux un café ; je voudrais un café, s’il vous plaît.','我要一杯咖啡；我想要一杯咖啡，麻烦您（直接与委婉）。'],['Vous pourriez m’aider ?','您能帮帮我吗？'],['Je serais contente de venir.','我会很乐意来（女性说话者）。']]],
+['先看语境再选时态，并把常见条件式词干 ser-/aur-/ir-/fer-/viendr-/pourr-/voudr-/devr-/saur-/verr- 连着原形记。',[['Quand j’étais petite, je lisais chaque soir ; hier, j’ai lu ce livre.','小时候我每晚读书；昨天我读了这本书。'],['Je pourrais venir, mais je voudrais savoir l’heure.','我可以来，但我想知道时间。']]]
+],q:[
+['填空：Il ___ des livres.（vendre，现在时）','vend',1,'规则 -re 第三人称单数不再加 t：vend。'],
+['填空：Nous ___ .（finir，现在时）','finissons',1,'finir 属于 -issons 类型。'],
+['填空：Elle ___ partie.（复合过去时助动词）','est',2,'不及物 partir 用 être。'],
+['填空：Elles sont ___ .（arriver）','arrivées',2,'être 助动词后与阴性复数主语配合。'],
+['填空：Les lettres que j’ai ___ sont ici.（écrire）','écrites',2,'que 代替前置直接宾语 lettres，écrit 配合为 écrites。'],
+['填空：Nous ___ jeunes.（être，未完成过去时）','étions',3,'être 的未完成过去时词干是 ét-。'],
+['选择：Il ___ quand Paul est arrivé.（下雨作背景）',['pleuvait','a plu'],3,'背景用未完成过去时，arrivé 是发生的事件。'],
+['填空：Je ___ lire ce livre.（近将来）','vais',4,'je vais＋不定式。'],
+['填空：Je ___ un thé, s’il vous plaît.（vouloir，礼貌）','voudrais',5,'vouloir 的条件式 je voudrais 更委婉。'],
+['填空：Vous ___ m’aider ?（pouvoir，条件式）','pourriez',6,'条件式词干 pourr-＋iez。']
+]},
+{rules:[
+['直接宾语代词 me/te/le/la/nous/vous/les 代替不带介词的宾语，le/la 在元音或哑音 h 前缩合为 l’。',[['Je vois Marie ; je la vois.','我看见玛丽；我看见她。'],['J’aime ce livre ; je l’aime.','我喜欢这本书；我喜欢它。'],['Je ne les ai pas vus.','我没看见他们（前置直接宾语为阳性复数）。']]],
+['间接宾语 me/te/nous/vous 及 lui/leur 可代替 parler à、donner à 等结构中的人，但 penser à 等结构仍用重读代词。',[['Je parle à Léa ; je lui parle.','我和莱娅说话；我和她说话。'],['Il écrit à ses parents ; il leur écrit.','他给父母写信；他给他们写信。'],['Je pense à elle.','我想念她（不用 je lui pense）。']]],
+['y 通常代替地点或 à＋事物，谈到人要按动词结构另选代词。',[['Je vais à Paris ; j’y vais.','我去巴黎；我去那里。'],['Elle pense à son examen ; elle y pense.','她想着考试；她想着这件事。']]],
+['en 代替 de＋事物、部分量或不定数量，原句的数量词保留，de＋人通常用重读代词。',[['Tu veux du pain ? Oui, j’en veux.','你想吃面包吗？想，我想吃一些。'],['J’ai trois livres ; j’en ai trois.','我有三本书；我有三本。'],['Je parle de lui.','我谈到他（指人）。']]],
+['宾语代词一般放在它所属的动词前，变位结构前的顺序是 me/te/se/nous/vous → le/la/les → lui/leur → y → en。',[['Je vais le lire.','我要读它（le 属于 lire）。'],['Je le lui donne.','我把它给他或她。'],['Je n’en ai pas acheté.','我没有买（那种东西）。']]],
+['关系代词 qui 作从句主语，que/qu’ 作直接宾语，où 指地点或时间。',[['La fille qui parle est mon amie.','说话的女孩是我的朋友。'],['Le livre que je lis est court.','我读的这本书很短。'],['C’est la ville où je suis née.','这是我出生的城市（女性说话者）。']]]
+],q:[
+['填空：Je vois mes amis. → Je ___ vois.','les',1,'mes amis 是直接宾语复数，用 les。'],
+['填空：J’aime cette chanson. → Je ___ aime.（缩合）',"l’",1,'la 在 aime 前缩合为 l’。'],
+['填空：Je téléphone à Marie. → Je ___ téléphone.','lui',2,'téléphoner à quelqu’un 用 lui 代替单数的人。'],
+['填空：Je parle aux enfants. → Je ___ parle.','leur',2,'间接宾语复数用 leur，不加 s。'],
+['填空：Nous allons au lycée. → Nous ___ allons.','y',3,'y 代替地点 au lycée。'],
+['填空：Tu veux du lait ? → Tu ___ veux ?','en',4,'en 代替部分量 du lait。'],
+['填空：J’ai deux chats. → J’en ai ___.','deux',4,'en 代替名词后保留数量 deux。'],
+['选择：我要读它。',['Je vais le lire.','Je le vais lire.'],5,'le 放在它所属的不定式 lire 前。'],
+['填空：La femme ___ parle est ma mère.','qui',6,'从句缺主语，用 qui。'],
+['选择：Le livre ___ je lis ; la ville ___ je vis.',['que / où','qui / que','où / qui'],6,'读的书是宾语用 que，居住的城市是地点用 où。']
+]},
+{rules:[
+['à le/à les 缩合为 au/aux，de le/de les 缩合为 du/des，à la/à l’/de la/de l’ 保持分写。',[['Je vais au cinéma.','我去电影院。'],['Elle revient des États-Unis.','她从美国回来。'],['Il parle aux élèves.','他和学生们说话。']]],
+['去或在城市一般用 à，阴性国家和元音开头的阳性国家用 en、其他阳性国家用 au、复数国家用 aux。',[['Elle habite à Pékin, en Chine.','她住在中国北京。'],['Nous allons au Canada et aux États-Unis.','我们去加拿大和美国。'],['Il travaille en Iran.','他在伊朗工作。']]],
+['说来源时城市前用 de/d’，阴性或元音开头的国家前常用 de/d’，其他阳性国家用 du、复数国家用 des。',[['Je viens de Paris et elle vient de Chine.','我来自巴黎，她来自中国。'],['Il revient du Canada.','他从加拿大回来。'],['Elle revient d’Iran.','她从伊朗回来。']]],
+['chez 指某人家或某职业人员处，dans/sur/sous/devant/derrière/entre 指位置，à pied 与 en bus/en train 指出行方式。',[['Je vais chez le médecin à pied.','我步行去看医生。'],['Le sac est sous la table.','包在桌子下面。'],['Nous allons à l’école en bus.','我们坐公交去学校。']]],
+['时刻用 à，月份和年份用 en，季节用 en été/en automne/en hiver/au printemps，星期加 le 常表示每周重复。',[['Le cours commence à huit heures.','课八点开始。'],['Je travaille le lundi ; lundi, je reste chez moi.','我每周一工作；这个周一我待在家里。'],['En juillet, il fait chaud ; au printemps, il fait doux.','七月很热；春天气候温和。']]],
+['depuis 表示持续至参照时点的状态，pendant 表示一段时长，il y a 表示多久以前，dans 表示多久以后，en 表示完成所需时长。',[['J’étudie le français depuis deux mois.','我学法语两个月了（还在学）。'],['J’ai étudié pendant deux heures et j’ai fini cet exercice en dix minutes.','我学了两小时，十分钟做完了这道练习。'],['Elle est partie il y a une heure ; elle va revenir dans une heure.','她一小时前走了，一小时后要回来。']]]
+],q:[
+['填空：Je vais ___ cinéma.','au',1,'à＋le 缩合成 au。'],
+['填空：Je parle ___ enfants.（à＋les）','aux',1,'à＋les 缩合成 aux。'],
+['填空：Elle habite ___ France.','en',2,'France 是阴性国家名，用 en。'],
+['填空：Nous allons ___ Japon.','au',2,'Japon 是辅音开头的阳性国家名，用 au。'],
+['填空：Je viens ___ Chine.','de',3,'来源，阴性国家 Chine 前用 de。'],
+['填空：Je vais ___ ma sœur.（去妹妹家）','chez',4,'去某人家用 chez。'],
+['填空：Nous allons à l’école ___ pied.','à',4,'步行固定说 à pied。'],
+['填空：___ printemps, il fait doux.','Au',5,'春天用 au printemps。'],
+['选择：我还在学，已学三个月。J’étudie ___ trois mois.',['depuis','il y a','dans'],6,'持续至现在用 depuis＋现在时。'],
+['选择：她两小时后回来。Elle va revenir ___ deux heures.',['dans','pendant','il y a'],6,'从现在起两小时以后用 dans。']
+]}
+];
+const PEOPLE=['je','tu','il / elle','nous','vous (复数)','ils / elles'];
+const PEOPLE_ZH=['我','你','他／她','我们','你们','他们／她们'];
+const TENSES=['现在时','复合过去时','未完成过去时','近将来','条件式现在时'];
+const TENSE_IDS=['present','passe','imparfait','proche','conditionnel'];
+const VERBS=[];
+function regular(inf,zh,group,pp,aux='avoir'){const stem=inf.slice(0,-2);const endings=group==='er'?['e','es','e','ons','ez','ent']:group==='ir'?['is','is','it','issons','issez','issent']:['s','s','','ons','ez','ent'];VERBS.push({inf,zh,group,pp:pp||(stem+(group==='er'?'é':group==='ir'?'i':'u')),aux,present:endings.map(e=>stem+e),future:group==='re'?inf.slice(0,-1):inf});}
+for(const row of [['parler','说话'],['manger','吃'],['habiter','居住'],['étudier','学习'],['regarder','看'],['écouter','听'],['travailler','工作'],['acheter','买'],['trouver','找到'],['arriver','到达']])regular(...row,'er',null,row[0]==='arriver'?'être':'avoir');
+for(const row of [['finir','完成'],['choisir','选择'],['réussir','成功'],['remplir','装满'],['grandir','长大'],['grossir','长胖'],['maigrir','变瘦'],['rougir','脸红'],['réfléchir','思考'],['obéir','服从']])regular(...row,'ir');
+for(const row of [['vendre','卖'],['attendre','等待'],['entendre','听见'],['rendre','归还'],['perdre','丢失'],['répondre','回答'],['descendre','下去（不带直接宾语）'],['défendre','保护'],['dépendre','取决于'],['confondre','混淆']])regular(...row,'re',null,row[0]==='descendre'?'être':'avoir');
+function irregular(inf,zh,present,pp,future,aux='avoir'){VERBS.push({inf,zh,group:'irregular',present:present.split('|'),pp,future,aux});}
+irregular('être','是','suis|es|est|sommes|êtes|sont','été','ser');
+irregular('avoir','有','ai|as|a|avons|avez|ont','eu','aur');
+irregular('aller','去','vais|vas|va|allons|allez|vont','allé','ir','être');
+irregular('faire','做','fais|fais|fait|faisons|faites|font','fait','fer');
+irregular('prendre','拿；乘坐','prends|prends|prend|prenons|prenez|prennent','pris','prendr');
+irregular('venir','来','viens|viens|vient|venons|venez|viennent','venu','viendr','être');
+irregular('pouvoir','能够','peux|peux|peut|pouvons|pouvez|peuvent','pu','pourr');
+irregular('vouloir','想要','veux|veux|veut|voulons|voulez|veulent','voulu','voudr');
+irregular('lire','读','lis|lis|lit|lisons|lisez|lisent','lu','lir');
+irregular('boire','喝','bois|bois|boit|buvons|buvez|boivent','bu','boir');
+irregular('voir','看见','vois|vois|voit|voyons|voyez|voient','vu','verr');
+irregular('savoir','知道','sais|sais|sait|savons|savez|savent','su','saur');
+irregular('devoir','必须','dois|dois|doit|devons|devez|doivent','dû','devr');
+irregular('mettre','放','mets|mets|met|mettons|mettez|mettent','mis','mettr');
+irregular('dire','说','dis|dis|dit|disons|dites|disent','dit','dir');
+irregular('écrire','写','écris|écris|écrit|écrivons|écrivez|écrivent','écrit','écrir');
+irregular('ouvrir','打开','ouvre|ouvres|ouvre|ouvrons|ouvrez|ouvrent','ouvert','ouvrir');
+irregular('offrir','赠送','offre|offres|offre|offrons|offrez|offrent','offert','offrir');
+irregular('mourir','死亡','meurs|meurs|meurt|mourons|mourez|meurent','mort','mourr','être');
+irregular('naître','出生','nais|nais|naît|naissons|naissez|naissent','né','naîtr','être');
+irregular('devenir','成为','deviens|deviens|devient|devenons|devenez|deviennent','devenu','deviendr','être');
+irregular('sortir','出去（不带直接宾语）','sors|sors|sort|sortons|sortez|sortent','sorti','sortir','être');
+irregular('partir','离开','pars|pars|part|partons|partez|partent','parti','partir','être');
+regular('rester','留下','er','resté','être');
+regular('tomber','摔倒','er','tombé','être');
+regular('monter','上去（不带直接宾语）','er','monté','être');
+irregular('tenir','握住；保持','tiens|tiens|tient|tenons|tenez|tiennent','tenu','tiendr');
+irregular('revenir','回来','reviens|reviens|revient|revenons|revenez|reviennent','revenu','reviendr','être');
+irregular('obtenir','获得','obtiens|obtiens|obtient|obtenons|obtenez|obtiennent','obtenu','obtiendr');
+const V=Object.fromEntries(VERBS.map(v=>[v.inf,v]));
+V.manger.present[3]='mangeons';
+V.acheter.present=['achète','achètes','achète','achetons','achetez','achètent'];V.acheter.future='achèter';
+const TEMPLATE=['être','avoir','aller','faire','prendre','venir','pouvoir','vouloir'];
+const PP40=['parler','manger','habiter','étudier','regarder','écouter','travailler','acheter','trouver','arriver','finir','choisir','réussir','vendre','attendre','entendre','perdre','lire','boire','voir','savoir','pouvoir','vouloir','devoir','prendre','mettre','dire','faire','écrire','ouvrir','offrir','mourir','naître','venir','devenir','sortir','partir','rester','tomber','monter'];
+const EXAM20=['être','avoir','aller','faire','prendre','venir','pouvoir','vouloir','parler','manger','habiter','étudier','finir','choisir','vendre','attendre','lire','dire','voir','savoir'];
+function conjugate(v,t,p,g='m'){
+ if(t==='present')return v.present[p];
+ if(t==='passe'){let pp=v.pp;if(v.aux==='être')pp+=(g==='f'?'e':'')+(p>=3?'s':'');return V[v.aux].present[p]+' '+pp;}
+ if(t==='proche')return V.aller.present[p]+' '+v.inf;
+ const end=['ais','ais','ait','ions','iez','aient'][p];
+ if(t==='conditionnel')return v.future+end;
+ let stem=v.inf==='être'?'ét':v.present[3].slice(0,-3);
+ if(v.inf==='manger'&&(p===3||p===4))stem='mang';
+ return stem+end;
+}
+const VOCAB_TEXT={
+'人':`la personne|人|une personne gentille
+le garçon|男孩|un petit garçon
+la fille|女孩；女儿|une jeune fille
+l’homme|男人|un homme gentil
+la femme|女人；妻子|une jeune femme
+l’enfant|孩子|un enfant calme
+l’ami|男性朋友|un bon ami
+l’amie|女性朋友|mon amie française
+la famille|家庭|une grande famille
+le père|父亲|mon père
+la mère|母亲|ma mère
+le frère|兄弟|mon petit frère
+la sœur|姐妹|ma grande sœur
+le grand-père|祖父；外祖父|mon grand-père
+la grand-mère|祖母；外祖母|ma grand-mère
+le fils|儿子|son fils
+le bébé|婴儿|un petit bébé
+le cousin|堂／表兄弟|mon cousin
+la cousine|堂／表姐妹|ma cousine
+le voisin|男邻居|un voisin sympa
+la voisine|女邻居|ma voisine
+le professeur|老师|le professeur de français
+l’étudiant|男大学生|un étudiant chinois
+l’étudiante|女大学生|une étudiante chinoise
+le prénom|名字|mon prénom`,
+'家':`la maison|房子|une petite maison
+l’appartement|公寓|un grand appartement
+la chambre|卧室|ma chambre
+le salon|客厅|dans le salon
+la cuisine|厨房|dans la cuisine
+la salle de bains|浴室|une salle de bains
+les toilettes|厕所|aller aux toilettes
+la porte|门|une porte ouverte
+la fenêtre|窗|une grande fenêtre
+le mur|墙|un mur blanc
+le sol|地面|sur le sol
+le toit|屋顶|un toit rouge
+l’escalier|楼梯|dans l’escalier
+le lit|床|un grand lit
+la table|桌子|sur la table
+la chaise|椅子|une chaise en bois
+le bureau|书桌；办公室|un petit bureau
+l’armoire|衣柜|une armoire blanche
+le canapé|沙发|un canapé confortable
+la lampe|灯|une lampe de bureau
+la clé|钥匙|la clé de la maison
+le jardin|花园|un beau jardin
+le balcon|阳台|sur le balcon
+le frigo|冰箱（口语）|dans le frigo
+la douche|淋浴|prendre une douche`,
+'时间':`le temps|时间；天气|avoir le temps
+le jour|天|chaque jour
+la journée|一天的时段|toute la journée
+la semaine|星期|la semaine prochaine
+le mois|月|le mois dernier
+l’année|年；一年|cette année
+l’an|年（计数）|un an
+l’heure|小时；时刻|à huit heures
+la minute|分钟|dans cinq minutes
+la seconde|秒|une seconde
+le matin|早晨|ce matin
+le midi|中午|vers midi
+l’après-midi|下午|cet après-midi
+le soir|傍晚；晚上|ce soir
+la nuit|夜晚|cette nuit
+le lundi|星期一|le lundi matin
+le mardi|星期二|le mardi soir
+le mercredi|星期三|le mercredi après-midi
+le jeudi|星期四|le jeudi matin
+le vendredi|星期五|le vendredi soir
+le samedi|星期六|le samedi matin
+le dimanche|星期日|le dimanche soir
+le printemps|春天|au printemps
+l’été|夏天|en été
+l’hiver|冬天|en hiver`,
+'吃':`le pain|面包|du pain frais
+le riz|米饭；大米|un bol de riz
+les pâtes|面食|des pâtes au fromage
+la viande|肉|de la viande
+le poulet|鸡；鸡肉|du poulet rôti
+le poisson|鱼|du poisson frais
+l’œuf|鸡蛋|un œuf dur
+le lait|牛奶|un verre de lait
+le fromage|奶酪|un morceau de fromage
+le beurre|黄油|du pain avec du beurre
+le yaourt|酸奶|un yaourt nature
+le fruit|水果|un fruit frais
+la pomme|苹果|une pomme rouge
+la banane|香蕉|une banane mûre
+l’orange|橙子|une orange douce
+le légume|蔬菜|des légumes verts
+la tomate|番茄|une salade de tomates
+la pomme de terre|土豆|des pommes de terre
+la soupe|汤|une soupe chaude
+l’eau|水|un verre d’eau
+le café|咖啡|un café sans sucre
+le thé|茶|une tasse de thé
+le sucre|糖|un peu de sucre
+le sel|盐|un peu de sel
+le repas|一餐|un bon repas`,
+'出行':`la rue|街道|dans la rue
+la route|公路；道路|une longue route
+la place|广场；位置|sur la place
+la ville|城市|une grande ville
+le village|村庄|un petit village
+le pays|国家|un pays européen
+la gare|火车站|à la gare
+l’aéroport|机场|à l’aéroport
+la station|站点|une station de métro
+l’arrêt|停靠站|un arrêt de bus
+le bus|公交车|prendre le bus
+le train|火车|prendre le train
+le métro|地铁|en métro
+le tramway|有轨电车|prendre le tramway
+le vélo|自行车|à vélo
+la voiture|汽车|en voiture
+le taxi|出租车|prendre un taxi
+l’avion|飞机|en avion
+le bateau|船|un petit bateau
+le billet|票|un billet de train
+le voyage|旅行|un long voyage
+la valise|行李箱|une grande valise
+le passeport|护照|mon passeport
+le plan|平面地图|un plan de la ville
+l’hôtel|旅馆|un hôtel calme`,
+'学习':`l’école|学校|aller à l’école
+le lycée|高中|au lycée
+l’université|大学|à l’université
+la classe|班级；课堂|en classe
+le cours|课程|un cours de français
+la leçon|一课|apprendre une leçon
+le livre|书|lire un livre
+le cahier|本子|un cahier neuf
+la page|页|la première page
+le stylo|笔|un stylo bleu
+le crayon|铅笔|un crayon noir
+la gomme|橡皮|une petite gomme
+la règle|尺子；规则|une règle de grammaire
+le sac|包|mon sac à dos
+le dictionnaire|词典|un dictionnaire français
+le mot|词|un mot nouveau
+la phrase|句子|une phrase simple
+la question|问题|poser une question
+la réponse|回答|la bonne réponse
+l’exercice|练习|faire un exercice
+le devoir|作业|faire ses devoirs
+l’examen|考试|réussir un examen
+la note|分数；笔记|une bonne note
+la langue|语言|une langue étrangère
+l’ordinateur|电脑|un ordinateur portable`,
+'身体':`le corps|身体|le corps humain
+la tête|头|avoir mal à la tête
+le visage|脸|un visage souriant
+les cheveux|头发|des cheveux longs
+l’œil|眼睛|un œil bleu
+le sang|血|une prise de sang
+l’oreille|耳朵|l’oreille droite
+le nez|鼻子|un petit nez
+la bouche|嘴|ouvrir la bouche
+la dent|牙齿|se brosser les dents
+le cou|脖子|avoir mal au cou
+l’épaule|肩膀|l’épaule gauche
+le bras|胳膊|le bras droit
+la main|手|se laver les mains
+le doigt|手指|les cinq doigts
+le dos|背|avoir mal au dos
+le ventre|肚子|avoir mal au ventre
+la jambe|腿|la jambe gauche
+le genou|膝盖|le genou droit
+le pied|脚|le pied gauche
+le cœur|心脏；心|le cœur humain
+la peau|皮肤|la peau douce
+la santé|健康|être en bonne santé
+le médecin|医生|aller chez le médecin
+le médicament|药|prendre un médicament`,
+'购物':`le magasin|商店|un grand magasin
+le marché|市场|au marché
+le supermarché|超市|au supermarché
+la boulangerie|面包店|à la boulangerie
+la pharmacie|药店|à la pharmacie
+le prix|价格|un prix bas
+l’argent|钱|avoir de l’argent
+l’euro|欧元|deux euros
+la monnaie|零钱|rendre la monnaie
+la carte|卡|payer par carte
+la caisse|收银台|à la caisse
+le ticket|小票；票|un ticket de caisse
+le reçu|收据|demander un reçu
+le panier|篮子|un panier plein
+le vêtement|衣物|un vêtement chaud
+la chemise|衬衫|une chemise blanche
+le pantalon|裤子|un pantalon noir
+la robe|连衣裙|une robe rouge
+la jupe|裙子|une jupe courte
+le manteau|大衣|un manteau chaud
+la chaussure|鞋|une paire de chaussures
+la taille|尺码；身高|la bonne taille
+la couleur|颜色|une couleur claire
+le cadeau|礼物|un petit cadeau
+la réduction|折扣|une réduction de prix`
+};
+const VOCAB=Object.entries(VOCAB_TEXT).map(([theme,rows])=>({theme,words:rows.split('\n').map(r=>r.split('|'))}));
+const PAST_EXAM=[
+['J’___ une pomme.（manger）','ai mangé','manger 用 avoir，直接宾语在后，不配合。'],
+['Nous ___ à Paris.（arriver，全体女性）','sommes arrivées','être＋阴性复数 arrivées。'],
+['Elle ___ tôt.（partir）','est partie','partir 用 être，阴性单数 partie。'],
+['Ils ___ chez eux.（rester）','sont restés','être＋阳性复数 restés。'],
+['Vous ___ ce livre.（lire，复数）','avez lu','lire 的过去分词为 lu。'],
+['Tu ___ tes devoirs.（faire）','as fait','faire → fait，avoir 不与主语配合。'],
+['Elles ___ le bus.（prendre）','ont pris','prendre 用 avoir，过去分词 pris。'],
+['Il ___ de l’eau.（boire）','a bu','boire → bu。'],
+['J’___ la porte.（ouvrir）','ai ouvert','ouvrir → ouvert。'],
+['Nous ___ une lettre.（écrire）','avons écrit','écrire → écrit，直接宾语在后。'],
+['Les lettres que j’___ sont longues.（écrire）','ai écrites','前置直接宾语 lettres，阴性复数配合。'],
+['Marie ? Je l’___ hier.（voir）','ai vue','l’ 指 Marie，为前置阴性单数直接宾语。'],
+['Elle ___ tôt.（se lever，填反身代词起的整个形式）',"s’est levée",'代词式动词用 être，这里 se 为直接宾语，与 elle 配合。'],
+['Elle ___ les mains.（se laver，填反身代词起的整个形式）',"s’est lavé",'直接宾语 les mains 在后，se 是间接宾语，lavé 不配合。'],
+['Tu ___ venir.（pouvoir）','as pu','pouvoir → pu。'],
+['Il ___ partir.（devoir）','a dû','devoir 的阳性单数过去分词 dû 有长音符。'],
+['Elles ___ à Lyon.（naître）','sont nées','naître 用 être，nées 阴性复数。'],
+['Nous ___ dans la rue.（sortir，全体男性，无直接宾语）','sommes sortis','此处出去用 être，sortis 阳性复数。'],
+['Elle ___ la valise.（monter，把箱子搬上去）','a monté','monter 带直接宾语 la valise 时用 avoir。'],
+['Ils ___ professeurs.（devenir）','sont devenus','devenir 用 être，devenus 阳性复数。']
+];
+const READING=`Hier, Léa est arrivée chez sa grand-mère à huit heures. Il faisait froid, mais la maison était chaude. Sa grand-mère préparait le petit déjeuner dans la cuisine. Léa a posé son sac, puis elle a mangé du pain avec du fromage. Elles ont parlé de la famille et des cours de français. Quand Léa était petite, elle venait ici chaque dimanche. Maintenant, elle habite dans une autre ville et elle prend le train. Après le repas, elles sont sorties au marché. Léa a acheté des pommes et sa grand-mère a choisi des légumes. Demain, elles vont préparer une soupe ensemble. Léa voudrait aussi écrire une lettre à son frère. Elle aime ces moments simples. Le soir, elle lit un livre et note les mots nouveaux dans son cahier. Elle veut mieux comprendre les histoires françaises. Pour elle, apprendre une langue ouvre une fenêtre sur le monde et sur les autres.`;
+const READING_KEY=[['est arrivée','arriver','复合过去时'],['faisait','faire','未完成过去时'],['était','être','未完成过去时'],['préparait','préparer','未完成过去时'],['a posé','poser','复合过去时'],['a mangé','manger','复合过去时'],['ont parlé','parler','复合过去时'],['était','être','未完成过去时'],['venait','venir','未完成过去时'],['habite','habiter','现在时'],['prend','prendre','现在时'],['sont sorties','sortir','复合过去时'],['a acheté','acheter','复合过去时'],['a choisi','choisir','复合过去时'],['vont préparer','préparer','近将来（aller 现在时＋不定式）'],['voudrait','vouloir','条件式现在时'],['écrire','écrire','不定式，无人称时态'],['aime','aimer','现在时'],['lit','lire','现在时'],['note','noter','现在时'],['veut','vouloir','现在时'],['comprendre','comprendre','不定式，无人称时态'],['apprendre','apprendre','不定式作主语，无人称时态'],['ouvre','ouvrir','现在时']];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const now=()=>new Date().toISOString();
+const blank=()=>({version:1,completed:Array(8).fill(false),answers:{},mastery:{},wrong:{},checks:Array(4).fill(false),writing:''});
+let state=blank(),storageOK=true,loadNotice='';
+function toast(s){$('#toast').textContent=s;$('#toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').hidden=true,7000);}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true;}catch{storageOK=false;toast('浏览器未能保存（可能空间已满或禁用存储）；当前进度还在，请立即导出备份。');}updateTop();}
+function parseID(id){
+ let m;if((m=/^g-(\d+)-(\d+)$/.exec(id))&&GRAMMAR[+m[1]]?.q[+m[2]])return{kind:'grammar',m:+m[1],q:+m[2]};
+ if((m=/^e-(\d+)$/.exec(id))&&PAST_EXAM[+m[1]])return{kind:'exam',q:+m[1]};
+ if((m=/^c-([^~]+)~([^~]+)~([0-5])~([mf])$/.exec(id))&&Object.hasOwn(V,m[1])&&TENSE_IDS.includes(m[2])&&(m[2]!=='conditionnel'||[0,4].includes(+m[3])))return{kind:'conj',inf:m[1],t:m[2],p:+m[3],g:m[4]};
+ return null;
+}
+function validate(raw){
+ if(!raw||typeof raw!=='object'||raw.version!==1)throw Error('不是 v1 进度文件');
+ const s=blank();
+ if(!Array.isArray(raw.completed)||raw.completed.length!==8||raw.completed.some(x=>typeof x!=='boolean'))throw Error('模块进度格式不正确');
+ if(!Array.isArray(raw.checks)||raw.checks.length!==4||raw.checks.some(x=>typeof x!=='boolean'))throw Error('验收记录格式不正确');
+ s.completed=raw.completed.slice();s.checks=raw.checks.slice();s.completed[7]=s.checks.every(Boolean);
+ if(raw.writing!==undefined&&(typeof raw.writing!=='string'||raw.writing.length>30000))throw Error('写作记录格式不正确');s.writing=raw.writing||'';
+ for(const field of ['answers','mastery','wrong'])if(!raw[field]||typeof raw[field]!=='object'||Array.isArray(raw[field]))throw Error('缺少 '+field+' 数据');
+ for(const [id,list] of Object.entries(raw.answers)){
+  if(!parseID(id)||!Array.isArray(list)||list.length>50000)throw Error('答题记录格式不正确');
+  s.answers[id]=list.map(a=>{if(!a||typeof a.ok!=='boolean'||typeof a.input!=='string'||a.input.length>500||typeof a.at!=='string'||!Number.isFinite(Date.parse(a.at)))throw Error('答题记录损坏');return{ok:a.ok,input:a.input,at:a.at};});
+ }
+ for(const [id,w] of Object.entries(raw.wrong)){
+  if(!parseID(id)||!w||!Number.isSafeInteger(w.count)||w.count<1||typeof w.resolved!=='boolean'||typeof w.lastAt!=='string'||!Number.isFinite(Date.parse(w.lastAt)))throw Error('错题格式不正确');
+  s.wrong[id]={count:w.count,resolved:w.resolved,lastAt:w.lastAt};
+ }
+ for(const [key,m] of Object.entries(raw.mastery)){
+  const [inf,t,g,...extra]=key.split('~');const target=t==='conditionnel'?[0,4]:[0,1,2,3,4,5];
+  if(extra.length||!Object.hasOwn(V,inf)||!TENSE_IDS.includes(t)||!['m','f'].includes(g)||!m||!Array.isArray(m.streak)||m.streak.some(p=>!target.includes(p))||new Set(m.streak).size!==m.streak.length||typeof m.mastered!=='boolean')throw Error('掌握表格式不正确');
+  if(m.mastered&&m.streak.length!==target.length)throw Error('掌握记录不完整');
+  s.mastery[key]={streak:m.streak.slice(),mastered:m.mastered};
+ }
+ return s;
+}
+try{const saved=localStorage.getItem(KEY);if(saved)state=validate(JSON.parse(saved));}catch{loadNotice='未能读取已有进度；当前先用空白记录。可在“进度备份”导入备份文件。';}
+function updateTop(){const n=state.completed.filter(Boolean).length;$('#progressText').textContent=n+' / 8 模块';$('#progress').value=n;$('#wrongCount').textContent=Object.values(state.wrong).filter(w=>!w.resolved).length;}
+function idConj(q){return'c-'+q.inf+'~'+q.t+'~'+q.p+'~'+q.g;}
+function masteryKey(q){return q.inf+'~'+q.t+'~'+(q.t==='passe'?q.g:'m');}
+function record(id,input,ok){
+ (state.answers[id]??=[]).push({input:input.slice(0,500),ok,at:now()});
+ if(!ok){const old=state.wrong[id];state.wrong[id]={count:(old?.count||0)+1,lastAt:now(),resolved:false};}
+ else if(state.wrong[id])state.wrong[id].resolved=true;
+ const q=parseID(id);if(q.kind==='conj'){
+  const key=masteryKey(q),m=state.mastery[key]??={streak:[],mastered:false};
+  if(!ok){m.streak=[];m.mastered=false;}else if(!m.streak.includes(q.p))m.streak.push(q.p);
+  m.mastered=m.streak.length===(q.t==='conditionnel'?2:6);
+ }
+ save();
+}
+// Grammar accepts typographic apostrophes and sentence case; conjugation is stricter.
+const normalizeGrammar=s=>s.trim().normalize('NFC').replace(/[’‘]/g,"'").toLocaleLowerCase('fr');
+const normalizeConj=s=>s.trim().normalize('NFC');
+let frenchVoice=null;
+function detectVoice(){try{frenchVoice=('speechSynthesis'in window)?speechSynthesis.getVoices().find(v=>v.localService===true&&/^fr(?:[-_]|$)/i.test(v.lang)):null;}catch{frenchVoice=null;}document.querySelectorAll('.speak').forEach(b=>b.hidden=!frenchVoice);}
+if('speechSynthesis'in window){try{speechSynthesis.addEventListener('voiceschanged',detectVoice);}catch{}}
+function speechButton(text){return'<button type="button" class="speak" data-speak="'+esc(text)+'" aria-label="朗读法语：'+esc(text)+'"'+(!frenchVoice?' hidden':'')+'>读</button>';}
+function examples(rows){return rows.map(([fr,zh])=>'<div class="example"><div class="fr" lang="fr">'+esc(fr)+'</div><div class="zh">'+esc(zh)+'</div>'+speechButton(fr)+'</div>').join('');}
+function accentBar(target){return'<div class="accents" role="group" aria-label="插入法语重音">'+Array.from('éèêàâçùûîôœ').map(c=>'<button type="button" data-accent="'+c+'" data-target="'+target+'" aria-label="插入 '+c+'">'+c+'</button>').join('')+'</div>';}
+function jump(m){return'<label class="muted">自由跳转<select class="nav-select" id="jump"><option value="">选择模块</option>'+MODULES.map((x,i)=>'<option value="'+i+'"'+(m===i?' selected':'')+'>'+String(i+1).padStart(2,'0')+' · '+x[0]+'</option>').join('')+'</select></label>';}
+function completion(m){if(m===7)return'';return'<label class="check panel"><input type="checkbox" data-complete="'+m+'" '+(state.completed[m]?'checked':'')+'><span>我已完成这个模块<br><small>由你决定，不以答题数或天数锁进度。</small></span></label>';}
+function grade(m){const qs=GRAMMAR[m].q;let done=0,right=0;qs.forEach((q,i)=>{const a=state.answers['g-'+m+'-'+i]?.at(-1);if(a){done++;if(a.ok)right++;}});return'已答 '+done+' / '+qs.length+' · 最近答对 '+right+' 题';}
+function home(){
+ return'<p class="eyebrow">À TON RYTHME · 按你的节奏</p><h1>把法语的骨架<br>一点点搭起来。</h1><p class="muted">不按天走，也不用等解锁。挑一块开始：看规则，遮住答案写出来，再用它造句。</p><div class="grid">'+MODULES.map((m,i)=>'<button class="module-card" data-route="m'+i+'"><span class="number">'+String(i+1).padStart(2,'0')+'</span><strong>'+m[0]+'</strong><small>'+m[1]+'</small><span class="status">'+(state.completed[i]?'✓ 已完成':i<5?grade(i):'开始 / 继续 →')+'</span></button>').join('')+'</div><details><summary>怎么用这本手册</summary><p>拼读已会，就从需要的地方开始。初次学习可先看名词、句子骨架，再把变位和时态用法配着练；所有模块都能自由跳转。</p><p>沿用原稿的练习分配：看规则约 15 分钟、遮答案默写变位约 20 分钟、用规则造 5 句约 20 分钟、回看错题约 5 分钟；这些是一次练习的参考，不是日程表。</p><p>隔一段时间先重写旧错题；每周回扫。熟悉规则后继续写短文，让“能认、能默写”变成“写作时用得出来”。</p><p>词表给你起步用的 200 条。接着从实际读到的短文里摘“冠词＋词＋短语”，不要只背孤立单词；下次先遮住中文回忆。</p><p>“读”按钮只在检测到设备已有的离线法语语音时出现。这里不请求网络语音。</p></details>';
+}
+function questionData(id){const d=parseID(id);if(!d)return null;
+ if(d.kind==='grammar'){const a=GRAMMAR[d.m].q[d.q];return{prompt:a[0],answer:Array.isArray(a[1])?a[1][0]:a[1],options:Array.isArray(a[1])?a[1]:null,explain:a[3],rule:'规则 '+(d.m+1)+'.'+a[2],ruleRoute:'m'+d.m,ruleId:'rule-'+a[2]};}
+ if(d.kind==='exam'){const a=PAST_EXAM[d.q];return{prompt:a[0],answer:a[1],explain:a[2],rule:'规则 3.2',ruleRoute:'m2',ruleId:'rule-2'};}
+ return{prompt:conjPrompt(d),answer:conjugate(V[d.inf],d.t,d.p,d.g),explain:conjExplanation(d),rule:'变位参考表',ruleRoute:'m5'};
+}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function quizHTML(id,index,review=false){const d=questionData(id);const inputId='input-'+id.replace(/[^a-zA-Z0-9-]/g,'_');const last=state.answers[id]?.at(-1);return'<article class="quiz-item" data-question="'+esc(id)+'"><h3>'+index+'. '+esc(d.prompt)+'</h3>'+(last?'<p class="muted">上次：'+(last.ok?'答对':'答错')+' · 可重新作答</p>':'')+(d.options?'<div class="choices">'+shuffle(d.options).map(v=>'<button data-choice="'+esc(v)+'" data-q="'+esc(id)+'">'+esc(v)+'</button>').join('')+'</div>':'<form data-quiz="'+esc(id)+'"><label class="sr-only" for="'+inputId+'">输入答案</label><input id="'+inputId+'" class="field" name="answer" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="500" placeholder="在这里默写" required>'+accentBar(inputId)+'<button class="primary" type="submit">核对答案</button></form>')+'<div class="result" role="status"></div></article>';}
+function grammarView(m){const d=GRAMMAR[m];return jump(m)+'<p class="eyebrow">模块 '+String(m+1).padStart(2,'0')+'</p><h1>'+MODULES[m][0]+'</h1><p class="muted">每条先看例句，再遮住它说一个自己的句子。</p>'+d.rules.map((r,i)=>'<section class="rule" id="rule-'+(i+1)+'"><h3><span class="rule-number">'+(m+1)+'.'+(i+1)+'</span>'+esc(r[0])+'</h3>'+examples(r[1])+'</section>').join('')+'<h2>写出来，才知道会不会</h2><p class="muted" id="quizScore">'+grade(m)+'。错题会自动收进错题本，重答正确后标为已订正。</p>'+d.q.map((_,i)=>quizHTML('g-'+m+'-'+i,i+1)).join('')+completion(m);}
+function diffHTML(typed,correct){const a=Array.from(typed),b=Array.from(correct),n=a.length,m=b.length;const dp=Array.from({length:n+1},()=>Array(m+1).fill(0));for(let i=0;i<=n;i++)dp[i][0]=i;for(let j=0;j<=m;j++)dp[0][j]=j;for(let i=1;i<=n;i++)for(let j=1;j<=m;j++)dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));let i=n,j=m,x=[],y=[];while(i||j){if(i&&j&&dp[i][j]===dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1)){const eq=a[i-1]===b[j-1];x.push(eq?esc(a[i-1]):'<mark>'+esc(a[i-1])+'</mark>');y.push(eq?esc(b[j-1]):'<mark>'+esc(b[j-1])+'</mark>');i--;j--;}else if(i&&dp[i][j]===dp[i-1][j]+1){x.push('<mark>'+esc(a[--i])+'</mark>');y.push('<mark>∅</mark>');}else{x.push('<mark>∅</mark>');y.push('<mark>'+esc(b[--j])+'</mark>');}}return'<div>你的答案</div><div class="diff">'+x.reverse().join('')+'</div><div>正确答案</div><div class="diff" lang="fr">'+y.reverse().join('')+'</div><small>高亮为差异；∅ 表示此处缺字或多字，不是答案的一部分。</small>';}
+function tableHTML(q){const v=V[q.inf];return'<div class="table-wrap"><table><caption>'+esc(v.inf)+' · '+TENSES[TENSE_IDS.indexOf(q.t)]+(q.t==='passe'?' · '+(q.g==='f'?'全体女性':'男性或混合组'):'')+'</caption><thead><tr><th>人称</th><th>形式（不含主语）</th></tr></thead><tbody>'+PEOPLE.map((p,i)=>'<tr><td>'+p+'</td><td class="fr" lang="fr">'+esc(conjugate(v,q.t,i,q.g))+'</td></tr>').join('')+'</tbody></table></div>'+(q.t==='conditionnel'?'<p class="muted">完整表供查错；本轮只考 je / vous。</p>':'');}
+function feedbackHTML(id,input,ok){const q=questionData(id),d=parseID(id);return'<div class="feedback"><strong class="'+(ok?'correct':'incorrect')+'">'+(ok?'✓ 答对了':'再写一次就能补上')+'</strong>'+(ok?'':d.kind==='conj'?diffHTML(normalizeConj(input),q.answer):'<p>你的答案：'+esc(input)+'<br>正确答案：<span lang="fr">'+esc(q.answer)+'</span></p>')+'<p>'+esc(q.explain)+'</p>'+(d.kind==='conj'&&!ok?tableHTML(d):'')+(d.kind!=='conj'?'<button class="ghost" data-rule-route="'+q.ruleRoute+'" data-rule-id="'+q.ruleId+'">回看 '+q.rule+'</button>':'')+'</div>';}
+function answerQuiz(id,input,box){const q=questionData(id),d=parseID(id);if(!input.trim()){toast('先写一个答案。');return;}const ok=d.kind==='conj'?normalizeConj(input)===q.answer:normalizeGrammar(input)===normalizeGrammar(q.answer);record(id,input,ok);box.querySelector('.result').innerHTML=feedbackHTML(id,input,ok);box.querySelectorAll('form button,form input,.choices button').forEach(b=>b.disabled=true);const m=/^m([0-4])$/.exec(route);if(m)$('#quizScore').textContent=grade(+m[1]);box.querySelector('.result').insertAdjacentHTML('beforeend','<button class="ghost" data-retry="'+esc(id)+'">再默写一次</button>');}
+let config={pool:'all',verb:'all',tense:'all',gender:'m'},round=null;
+function conjPrompt(q){return q.inf+' · '+TENSES[TENSE_IDS.indexOf(q.t)]+' · '+PEOPLE_ZH[q.p]+(q.t==='passe'&&V[q.inf].aux==='être'?'（'+(q.g==='f'?'女性／全体女性':'男性／男性或混合组')+'）':'');}
+function conjExplanation(q){const v=V[q.inf];if(q.t==='present')return v.group==='irregular'?'这个动词按专属模板记，重点对照词干。':v.inf==='acheter'?'acheter 的部分人称用 achèt-，nous / vous 用 achet-。':v.inf==='manger'?'manger 的 nous 是 mangeons，保留 e 的发音作用。':'按 '+(v.group==='re'?'-re（vendre 型）':v.group==='ir'?'-ir（finir 型）':'-er')+' 词尾匹配人称。';if(q.t==='passe')return v.aux==='être'?'此处用 être；过去分词与主语性数配合，vous 在本训练中固定为复数。':'avoir 的现在时＋'+v.pp+'；本训练无前置直接宾语，过去分词不配合。';if(q.t==='imparfait')return v.inf==='être'?'être 特用 ét-＋未完成过去时词尾。':v.inf==='manger'?'mange- 加词尾，但 nous / vous 用 mangions / mangiez。':'现在时 nous 去 -ons，再加 ais / ais / ait / ions / iez / aient。';if(q.t==='proche')return'aller 的现在时＋不定式 '+v.inf+'。';return'条件式词干 '+v.future+'-＋'+(q.p===0?'ais':'iez')+'；本轮练 je / vous。';}
+function poolVerbs(){return config.pool==='template'?TEMPLATE.map(x=>V[x]):config.pool==='pp'?PP40.map(x=>V[x]):config.pool==='all'?VERBS:VERBS.filter(v=>v.group===config.pool).slice(0,10);}
+function makeQuestions(){const vs=config.verb==='all'?poolVerbs():[V[config.verb]],ts=config.tense==='all'?TENSE_IDS:[config.tense],all=[];for(const v of vs)for(const t of ts)for(const p of(t==='conditionnel'?[0,4]:[0,1,2,3,4,5]))all.push({inf:v.inf,t,p,g:config.gender});return all;}
+function startRound(mode='normal'){
+ if(mode==='accept'){round={mode,questions:shuffle(EXAM20.flatMap(inf=>Array.from({length:6},(_,p)=>({inf,t:'present',p,g:'m'})))),index:0,correct:0,answered:false,results:[]};}
+ else{const all=makeQuestions();let qs=[];while(qs.length<10)qs.push(...shuffle(all));round={mode,questions:qs.slice(0,10),index:0,correct:0,answered:false,results:[]};}
+ if(route!=='m5')go('m5');else render();
+}
+function options(values,selected){return values.map(([value,label])=>'<option value="'+esc(value)+'"'+(selected===value?' selected':'')+'>'+esc(label)+'</option>').join('');}
+function trainerView(){let s=jump(5)+'<p class="eyebrow">模块 06 · ÉCRIRE DE MÉMOIRE</p><h1>变位训练器</h1><p class="muted">'+VERBS.length+' 个动词 · 5 种时态 · 一局 10 题。输入动词形式，不写主语；例如 nous + parler → <span lang="fr">parlons</span>。</p>';
+ if(round)return s+roundHTML();
+ s+='<section class="panel"><h2>这局练什么</h2><div class="filters"><label>动词池<select id="pool">'+options([['all','全部 '+VERBS.length+' 个'],['template','8 个模板动词'],['pp','40 个过去分词对应动词'],['er','规则 -er 组 10 个'],['ir','规则 -ir 组 10 个'],['re','规则 -re 组 10 个']],config.pool)+'</select></label><label>时态<select id="tense">'+options([['all','混合五种时态'],...TENSE_IDS.map((t,i)=>[t,TENSES[i]])],config.tense)+'</select></label><label class="full">动词（指定一个，更容易练齐六格）<select id="verb">'+options([['all','池内随机'],...poolVerbs().map(v=>[v.inf,v.inf+' · '+v.zh])],config.verb)+'</select></label><label class="full">主语性别（用于 être 过去分词配合）<select id="gender">'+options([['m','男性单数 / 男性或混合复数组'],['f','女性单数 / 全体女性复数组']],config.gender)+'</select></label></div><p class="muted">vous 固定表示“你们”（复数）。sortir / monter / descendre 在训练器中表示不带直接宾语的移动。</p><button class="primary" data-action="start">开始 10 题 →</button></section><details><summary>判分与“已掌握”怎么算</summary><p>忽略首尾空白；重音、大小写和内部空格都要正确。输入与键盘组合重音会按同一 Unicode 字符识别，但 é 与 e 不等价。</p><p>每个动词、每个时态分别记录：连续答对 6 个不同人称，记为已掌握；同一格重复答对不多计，答错就清空该组连续记录并撤销掌握。穿插其他动词不打断，跨局保留；复合过去时男女配合分开记。</p><p>条件式按原稿只考 je / vous，因此以 2 / 2 单列为“礼貌用法已掌握”，不会冒充六人称已掌握。</p><p>指定动词＋时态时，先随机出完一轮人称再重复；总题数仍为 10。</p></details>'+masteryHTML()+referenceHTML()+completion(5);return s;
+}
+function roundHTML(){const done=round.index>=round.questions.length;if(done){const pct=Math.round(round.correct/round.questions.length*100);return'<section class="panel"><p class="eyebrow">'+(round.mode==='accept'?'120 格验收':'本局完成')+'</p><h2>'+pct+'% · '+round.correct+' / '+round.questions.length+'</h2><p>答错的已经收进错题本。先重写错格，再开始新一局。</p>'+(round.mode==='accept'?'<p class="'+(pct>=90?'correct':'incorrect')+'">'+(pct>=90?'达到 ≥90% 的验收标准，可回验收页勾选第一项。':'还没达到 ≥90%，回看错格后再试。')+'</p>':'')+'<div class="actions"><button class="primary" data-action="again">再练一局</button><button data-action="endRound">调整范围</button><button data-route="wrong">去错题本</button></div></section>'+masteryHTML()+completion(5);}
+ const q=round.questions[round.index],v=V[q.inf],key=masteryKey(q),m=state.mastery[key];return'<section class="panel"><div class="between"><span>'+(round.mode==='accept'?'验收':'本局')+' '+(round.index+1)+' / '+round.questions.length+'</span><span>已答对 '+round.correct+' 题</span></div><progress value="'+round.index+'" max="'+round.questions.length+'" aria-label="本局已答题数"></progress><p class="eyebrow" style="margin-top:24px">'+esc(v.zh)+'</p><h2>'+esc(conjPrompt(q))+'</h2><p class="muted">本组连续覆盖 '+(m?.streak.length||0)+' / '+(q.t==='conditionnel'?2:6)+' 人称</p><form id="trainerForm"><label for="conjInput">只写动词形式</label><input id="conjInput" class="field" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="120" required '+(round.answered?'disabled':'')+' value="'+(round.answered?esc(round.lastInput):'')+'">'+accentBar('conjInput')+'<button class="primary" type="submit" '+(round.answered?'disabled':'')+'>核对答案</button></form><div id="conjFeedback" role="status">'+(round.answered?feedbackHTML(idConj(q),round.lastInput,round.lastOK):'')+'</div>'+(round.answered?'<button class="primary" data-action="next" style="margin-top:18px">'+(round.index+1===round.questions.length?'看本局结果':'下一题 →')+'</button>':'')+'</section><button class="ghost" data-action="endRound">结束本局，保留已答记录</button>';
+}
+function masteryHTML(){const list=Object.entries(state.mastery).sort((a,b)=>Number(b[1].mastered)-Number(a[1].mastered));const mastered=list.filter(([,m])=>m.mastered);return'<details><summary>已掌握 '+mastered.length+' 组 · 查看覆盖情况</summary>'+(list.length?list.map(([key,m])=>{const[inf,t,g]=key.split('~');return'<p><strong>'+esc(inf)+'</strong> · '+TENSES[TENSE_IDS.indexOf(t)]+(t==='passe'?'（'+(g==='f'?'女性':'男性／混合')+'）':'')+'<br><span class="'+(m.mastered?'correct':'muted')+'">'+(m.mastered?'✓ '+(t==='conditionnel'?'礼貌用法已掌握':'六人称已掌握'):'连续覆盖 '+m.streak.length+' / '+(t==='conditionnel'?2:6))+'</span></p>';}).join(''):'<p class="muted">先默写，覆盖同一组的不同人称。</p>')+'</details>';}
+function referenceHTML(){return'<details><summary>先记三张词尾表与八个模板</summary><p>-er（parler）：e / es / e / ons / ez / ent<br>-ir（finir）：is / is / it / issons / issez / issent<br>-re（vendre）：s / s / 零词尾 / ons / ez / ent</p><p>规则 -re 的 il vend 没有额外的 -t；prendre 属于另一个模板：prends / prends / prend / prenons / prenez / prennent，不能拿它推 vendre。</p><p>venir 家族：tenir / devenir / revenir / obtenir；venir / tenir 各按自己的词根变化，带前缀的词沿用对应形式，但助动词分别记：venir / devenir / revenir 用 être，tenir / obtenir 用 avoir。</p><p>-oir 不是统一的变位模板：pouvoir、vouloir、devoir、savoir、voir 的词干各记一份。</p>'+TEMPLATE.map(inf=>tableHTML({inf,t:'present',g:'m'})).join('')+'</details><details><summary>40 个高频过去分词</summary><p>前 10 个是原稿的 -é 组，其余 30 个保留原稿顺序；后组也含 resté / tombé / monté，不全是 -i / -u。</p>'+PP40.map(inf=>'<div class="word"><span class="fr" lang="fr">'+inf+' → '+V[inf].pp+'</span><br><small>'+V[inf].zh+' · 助动词 '+V[inf].aux+'</small></div>').join('')+'<p>sortir / monter / descendre 带直接宾语时改用 avoir：elle a sorti le livre，elle a monté la valise；单纯移动用 être：elle est sortie，elle est montée。代词式动词的配合另见规则 3.2。</p></details><details><summary>查询任意动词的六人称表</summary><label>动词<select id="refVerb" class="field">'+options(VERBS.map(v=>[v.inf,v.inf+' · '+v.zh]),'parler')+'</select></label><label>时态<select id="refTense" class="field">'+options(TENSE_IDS.map((t,i)=>[t,TENSES[i]]),'present')+'</select></label><label>配合<select id="refGender" class="field"><option value="m">男性／混合</option><option value="f">全体女性</option></select></label><div id="refTable">'+tableHTML({inf:'parler',t:'present',g:'m'})+'</div></details>';}
+function vocabView(){return jump(6)+'<p class="eyebrow">模块 07 · LES MOTS EN CONTEXTE</p><h1>200 个词，带着短语记</h1><p class="muted">每组 25 条。“l’”会隐藏词性，后面的 un / une 或配合帮你认；œil 的复数是 yeux，注意这个特殊变化。</p><label for="wordSearch">搜法语、中文或短语</label><input id="wordSearch" type="search" class="field" placeholder="比如：école、家、du pain"><label class="check"><input id="hideMeaning" type="checkbox"><span>遮住中文，自测意思</span></label><div id="words">'+wordsHTML('')+'</div><div class="notice">这 200 条是起步材料。读短文时继续摘词，写成“冠词＋词＋一个短语”；下次先回忆上次的词，再加新词。</div>'+completion(6);}
+function wordsHTML(query){const term=query.trim().toLocaleLowerCase('fr');let count=0;const content=VOCAB.map(group=>{const words=group.words.filter(w=>w.join(' ').toLocaleLowerCase('fr').includes(term));count+=words.length;return words.length?'<details'+(term?' open':'')+'><summary>'+group.theme+' · '+words.length+' 条</summary>'+words.map(w=>'<div class="word"><div class="word-head"><strong class="fr" lang="fr">'+esc(w[0])+'</strong><span class="meaning">'+esc(w[1])+'</span></div><div class="fr" lang="fr">'+esc(w[2])+'</div>'+speechButton(w[2])+'</div>').join('')+'</details>':'';}).join('');return'<p class="muted">'+count+' / 200 条</p>'+content;}
+function acceptanceView(){return jump(7)+'<p class="eyebrow">模块 08 · À TOI DE JOUER</p><h1>能独立完成，就勾上</h1><p class="muted">四项全过才算完成。这里验收的是“认得、能默写、能造句”，之后继续靠短文写作巩固。</p>'+[
+ ['20 个高频动词 × 6 人称：现在时 ≥ 90%','遮住参考表，默写 120 格，至少 108 格正确；重音算错。内置验收覆盖下面 20 个动词，题目不重复，作答时不许翻表。','<p class="fr" lang="fr">'+EXAM20.join(' · ')+'</p><button class="primary" data-action="acceptPresent">开始 120 格验收</button><p class="muted">验收局可在页面内切换查看，刷新后需重开；已提交的每题仍保存。</p>'],
+ ['复合过去时 20 题：至少答对 16 题','一次完成后再统计第一遍成绩；检查助动词、过去分词、性数配合，三个都正确才算一题。订正后可重新开一轮。','<button class="primary" data-route="pastExam">打开 20 题验收</button>'],
+ ['150 词 A2 短文：指出每个动词的时态和原形','先在纸上圈出所有动词，再标原形与时态；不定式也标出来，助动词和过去分词视为一个整体，最后打开核对表逐项检查。','<p class="reading" lang="fr">'+READING+'</p>'+speechButton(READING)+'<details><summary>写完再打开：24 处动词核对表</summary><div class="table-wrap"><table><thead><tr><th>文中形式</th><th>原形</th><th>时态／形式</th></tr></thead><tbody>'+READING_KEY.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p>按空格计 150 词；复合形式、近将来整体标注。voudrait écrire 中 voudrait 为条件式，écrire 为不定式；voudrait 是文中的第三人称识别练习，默写范围仍只有 je / vous。</p></details>'],
+ ['冠词、名词、形容词、动词、否定：各造 5 句，语法错 ≤ 2','按原稿“各造 5 句”准备 5 组、共 25 句，每组突出一个项目，并尽量同时使用其他项目；写完逐句检查性数、冠词、动词人称、否定位置，累计语法错误不超过 2 处。','<p>建议请老师或可靠的批改者检查自由造句；这个离线页面不会自动判定任意句子的语法。可先用自查表修订，再以独立重写的版本验收。</p><details><summary>自查与参考句</summary><p>① 冠词是否与性数、否定相符？② 名词复数是否正确？③ 形容词位置、性数是否一致？④ 动词人称与时态是否正确？⑤ ne…pas 是否包住变位动词？</p>'+examples([['Ma petite sœur ne mange pas de viande.','我的小妹妹不吃肉。'],['Les grandes maisons ne sont pas blanches.','这些大房子不是白色的。'],['Je n’ai pas acheté de nouvelle robe.','我没有买新的连衣裙。']])+'</details><label for="writing">我的句子与批改记录（自动保存）</label><textarea id="writing" class="field" rows="10" maxlength="30000" placeholder="每组写 5 句，也可以记下纸上练习的结果。">'+esc(state.writing)+'</textarea>']
+ ].map(([title,text,body],i)=>'<section class="panel"><h2>'+title+'</h2><p>'+text+'</p>'+body+'<label class="check"><input type="checkbox" data-check="'+i+'" '+(state.checks[i]?'checked':'')+'><span>我已按标准自测通过这一项</span></label></section>').join('')+'<p id="acceptStatus" class="notice">'+(state.checks.every(Boolean)?'四项已通过，验收模块已完成。接着继续写自己的短文。':'完成 '+state.checks.filter(Boolean).length+' / 4 项；全部勾选后自动完成本模块。')+'</p>';}
+let pastSession=null;
+function pastExamView(){if(!pastSession)pastSession={};return'<button class="ghost" data-route="m7">← 回验收</button><h1>复合过去时 · 20 题</h1><p>每题填完整形式（助动词＋过去分词）；代词式动词按题目要求加反身代词。按本轮首次提交计分，至少 16 / 20；刷新会重置本轮统计，逐题记录仍保留。</p><p class="notice" id="pastScore">'+pastScoreText()+'</p><button data-action="restartPast">重新开一轮</button>'+PAST_EXAM.map((_,i)=>quizHTML('e-'+i,i+1)).join('');}
+function pastScoreText(){const vals=Object.values(pastSession||{});return'本轮首次作答 '+vals.length+' / 20 · 正确 '+vals.filter(Boolean).length+(vals.length===20?' / 20（'+(vals.filter(Boolean).length>=16?'达到验收标准，可回去勾选第二项':'未达到 16 题，订正后再试')+'）':'；完整做完再判断是否通过。');}
+function wrongView(){const entries=Object.entries(state.wrong).sort((a,b)=>b[1].lastAt.localeCompare(a[1].lastAt));const open=entries.filter(([,w])=>!w.resolved),fixed=entries.filter(([,w])=>w.resolved);return'<p class="eyebrow">REPRENDRE · 从错处继续</p><h1>错题本</h1><p class="muted">待订正 '+open.length+' 题 · 已订正 '+fixed.length+' 题。重答正确会标为已订正；以后再错会重新出现，历史记录保留。</p>'+(open.length?open.map(([id,w],i)=>'<p class="muted">累计答错 '+w.count+' 次</p>'+quizHTML(id,i+1,true)).join(''):'<div class="panel empty">暂时没有待订正的错题。<br>去练一局，看看哪些已经会了。</div>')+(fixed.length?'<details><summary>已订正 '+fixed.length+' 题，仍可复习</summary>'+fixed.map(([id],i)=>quizHTML(id,i+1,true)).join('')+'</details>':'');}
+function dataView(){const attempts=Object.values(state.answers).reduce((n,a)=>n+a.length,0);return'<p class="eyebrow">只留在你手里</p><h1>进度备份</h1><div class="panel"><p>已保存 '+attempts+' 次作答；'+state.completed.filter(Boolean).length+' 个模块完成。数据只使用当前浏览器的 <code>fr_grammar_v1</code> 一个存储键。</p><p>导出 JSON 后传到另一台设备，在那边打开同一个页面并导入。导入会替换本机进度，不合并；建议先导出本机记录。</p><div class="actions"><button class="primary" data-action="export">导出进度 JSON</button><label class="file" for="importFile">导入进度 JSON</label><input id="importFile" class="sr-only" type="file" accept=".json,application/json"></div><p id="importStatus" role="status"></p></div><div class="notice">隐私窗口、清理浏览器数据、移动或重命名文件，都可能让原进度不可用。不同浏览器和 file 文件地址的存储行为不同，请定期导出。'+(!storageOK?'当前浏览器无法写入持久存储，请立即导出。':'')+'</div><p>网页不登录、不联网，也不上传进度；导出文件含作答记录和你写的句子。</p>';}
+let route='home';
+function render(){updateTop();let html;if(route==='home')html=home();else if(/^m[0-7]$/.test(route)){const m=+route.slice(1);html=m<5?grammarView(m):m===5?trainerView():m===6?vocabView():acceptanceView();}else html=route==='wrong'?wrongView():route==='data'?dataView():route==='pastExam'?pastExamView():home();$('#main').innerHTML=html;detectVoice();}
+function go(dest){if(route===dest){render();window.scrollTo(0,0);return;}location.hash=dest;}
+function handleRoute(){const dest=location.hash.slice(1);route=/^(home|wrong|data|pastExam|m[0-7])$/.test(dest)?dest:'home';render();window.scrollTo(0,0);$('#main').focus({preventScroll:true});}
+window.addEventListener('hashchange',handleRoute);
+$('#homeBtn').addEventListener('click',()=>go('home'));$('#wrongBtn').addEventListener('click',()=>go('wrong'));$('#dataBtn').addEventListener('click',()=>go('data'));
+let cursorPositions=new Map();
+document.addEventListener('selectionchange',()=>{const e=document.activeElement;if(e?.id&&(e.tagName==='INPUT'||e.tagName==='TEXTAREA')&&typeof e.selectionStart==='number')cursorPositions.set(e.id,[e.selectionStart,e.selectionEnd]);});
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-accent]');if(b){const input=document.getElementById(b.dataset.target);if(input&&typeof input.selectionStart==='number')cursorPositions.set(input.id,[input.selectionStart,input.selectionEnd]);e.preventDefault();}});
+$('#main').addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b||b.disabled)return;
+ if(b.dataset.route){go(b.dataset.route);return;}
+ if(b.dataset.ruleRoute){const dest=b.dataset.ruleRoute,id=b.dataset.ruleId;go(dest);setTimeout(()=>document.getElementById(id)?.scrollIntoView({block:'start'}),60);return;}
+ if(b.dataset.speak){if(!frenchVoice)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(b.dataset.speak);u.lang='fr-FR';u.voice=frenchVoice;u.rate=.88;u.onerror=()=>{frenchVoice=null;document.querySelectorAll('.speak').forEach(x=>x.hidden=true);};speechSynthesis.speak(u);}catch{frenchVoice=null;document.querySelectorAll('.speak').forEach(x=>x.hidden=true);}return;}
+ if(b.dataset.accent){const input=document.getElementById(b.dataset.target);if(!input||input.disabled)return;const pos=cursorPositions.get(input.id)||[input.selectionStart??input.value.length,input.selectionEnd??input.value.length];input.focus({preventScroll:true});input.setRangeText(b.dataset.accent,pos[0],pos[1],'end');cursorPositions.set(input.id,[input.selectionStart,input.selectionEnd]);input.dispatchEvent(new Event('input',{bubbles:true}));return;}
+ if(b.dataset.choice!==undefined){submitQuestion(b.dataset.q,b.dataset.choice,b.closest('[data-question]'));return;}
+ if(b.dataset.retry){const box=b.closest('[data-question]');box.querySelectorAll('form button,form input,.choices button').forEach(x=>x.disabled=false);box.querySelector('.result').innerHTML='';const inp=box.querySelector('input');if(inp){inp.value='';inp.focus();}return;}
+ switch(b.dataset.action){
+ case'start':startRound();break;
+ case'acceptPresent':startRound('accept');break;
+ case'next':round.index++;round.answered=false;render();$('#conjInput')?.focus({preventScroll:true});break;
+ case'again':startRound(round?.mode||'normal');break;
+ case'endRound':round=null;render();break;
+ case'restartPast':pastSession={};render();break;
+ case'export':{try{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='fr_grammar_v1-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);toast('已请求下载进度文件；可在浏览器的下载列表里查看。');}catch{toast('此浏览器未能下载文件，请换用支持文件下载的浏览器。');}break;}
+ }
+});
+function submitQuestion(id,input,box){const d=questionData(id);if(!input.trim()){toast('先写一个答案。');return;}if(route==='pastExam'&&pastSession[id]===undefined){pastSession[id]=normalizeGrammar(input)===normalizeGrammar(d.answer);}answerQuiz(id,input,box);if(route==='pastExam')$('#pastScore').textContent=pastScoreText();}
+$('#main').addEventListener('submit',e=>{e.preventDefault();const form=e.target;if(form.id==='trainerForm'){
+ if(!round||round.answered)return;const input=$('#conjInput').value;if(!input.trim()){toast('先写一个答案。');return;}const q=round.questions[round.index],ok=normalizeConj(input)===conjugate(V[q.inf],q.t,q.p,q.g);round.answered=true;round.lastInput=input;round.lastOK=ok;round.results.push(ok);if(ok)round.correct++;record(idConj(q),input,ok);render();
+ }else if(form.dataset.quiz)submitQuestion(form.dataset.quiz,form.elements.answer.value,form.closest('[data-question]'));});
+$('#main').addEventListener('change',async e=>{
+ const el=e.target;
+ if(el.id==='jump'&&el.value!==''){go('m'+el.value);return;}
+ if(el.dataset.complete!==undefined){state.completed[+el.dataset.complete]=el.checked;save();return;}
+ if(el.dataset.check!==undefined){state.checks[+el.dataset.check]=el.checked;state.completed[7]=state.checks.every(Boolean);save();$('#acceptStatus').textContent=state.completed[7]?'四项已通过，验收模块已完成。接着继续写自己的短文。':'完成 '+state.checks.filter(Boolean).length+' / 4 项；全部勾选后自动完成本模块。';return;}
+ if(['pool','verb','tense','gender'].includes(el.id)){config[el.id]=el.value;if(el.id==='pool'){config.verb='all';render();}return;}
+ if(['refVerb','refTense','refGender'].includes(el.id)){$('#refTable').innerHTML=tableHTML({inf:$('#refVerb').value,t:$('#refTense').value,g:$('#refGender').value});return;}
+ if(el.id==='hideMeaning'){document.querySelectorAll('.meaning').forEach(x=>x.hidden=el.checked);return;}
+ if(el.id==='importFile'){
+  const file=el.files[0];if(!file)return;const status=$('#importStatus');status.textContent='正在检查文件…';
+  try{if(file.size>20*1024*1024)throw Error('文件超过 20 MB');const incoming=validate(JSON.parse(await file.text()));state=incoming;round=null;pastSession=null;save();status.textContent=storageOK?'导入成功，进度已替换并保存。':'导入成功，但浏览器未能持久保存；请保留原 JSON 文件。';}catch(err){status.textContent='没有导入，原进度保持不变：'+(err instanceof SyntaxError?'JSON 文件损坏或格式错误':err.message);}
+  el.value='';
+ }
+});
+$('#main').addEventListener('input',e=>{const el=e.target;if(el.id==='wordSearch'){$('#words').innerHTML=wordsHTML(el.value);document.querySelectorAll('.meaning').forEach(x=>x.hidden=$('#hideMeaning').checked);detectVoice();}if(el.id==='writing'){state.writing=el.value;save();}});
+handleRoute();detectVoice();if(loadNotice)toast(loadNotice);
+/* APP_NEXT */
+</script>
+</body>
+</html>
